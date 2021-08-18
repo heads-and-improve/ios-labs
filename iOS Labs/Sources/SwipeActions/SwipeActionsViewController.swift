@@ -7,13 +7,7 @@
 
 import UIKit
 
-final class SwipeActionsViewController: UITableViewController {
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        title = "SwipeActions"
-    }
-}
+final class SwipeActionsViewController: UITableViewController { }
 
 extension SwipeActionsViewController {
 
@@ -39,10 +33,9 @@ extension SwipeActionsViewController {
             completion(true)
         }
         checkAction.backgroundColor = .systemBlue
-
         return UISwipeActionsConfiguration(actions: [checkAction])
     }
-
+    
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard indexPath.row % 2 == 1 else { return nil }
 

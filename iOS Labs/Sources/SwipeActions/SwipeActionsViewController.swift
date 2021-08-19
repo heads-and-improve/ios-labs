@@ -23,16 +23,17 @@ extension SwipeActionsViewController {
 }
 
 extension SwipeActionsViewController {
-    
+
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard indexPath.row % 2 == 0 else { return nil }
 
-        let checkAction = UIContextualAction(style: .normal, title: "Check")
+        let checkAction = UIContextualAction(style: .normal, title: "Plane")
         { [weak self] action, view, completion in
             self?.showAlert(withMessage: "Отрабатываем действие Check")
             completion(true)
         }
         checkAction.backgroundColor = .systemBlue
+        checkAction.image = UIImage(systemName: "paperplane.fill")
         return UISwipeActionsConfiguration(actions: [checkAction])
     }
     

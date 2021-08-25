@@ -13,6 +13,20 @@
 		<string>Урок 1</string>
 		<key>description</key>
 		<string>Рассказываю как вызывать действия по свайпу ячейки UITableView из коробки.</string>
+		<key>storyboardName</key>
+		<string>SwipeActions</string>
+		<key>viewControllerName</key>
+		<string>SwipeActionsViewController</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Урок 2</string>
+		<key>description</key>
+		<string>Рассказываю как добавлять вспомогательные меню при длительном нажатии на ячейку UITableView</string>
+		<key>storyboardName</key>
+		<string>ContextMenu</string>
+		<key>viewControllerName</key>
+		<string>ContextMenuViewController</string>
 	</dict>
 </array>
 </plist>

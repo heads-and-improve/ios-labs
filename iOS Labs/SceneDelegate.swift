@@ -61,7 +61,14 @@ extension SceneDelegate {
                 unparsedLessons.compactMap { unparsedLesson in
                     let title = unparsedLesson["title"]
                     let description = unparsedLesson["description"]
-                    return Lesson(title: title, description: description)
+                    let storyboardName = unparsedLesson["storyboardName"]
+                    let viewControllerName = unparsedLesson["viewControllerName"]
+                    return Lesson(
+                        title: title,
+                        description: description,
+                        storyboardName: storyboardName,
+                        viewControllerName: viewControllerName
+                    )
                 }
             }
             ?? []

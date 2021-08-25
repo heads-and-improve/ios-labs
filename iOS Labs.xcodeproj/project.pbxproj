@@ -91,11 +91,11 @@
 		5A2DB79626D64276000EDC46 /* ContextMenu */ = {
 			isa = PBXGroup;
 			children = (
+				5A2DB79D26D6C15E000EDC46 /* Sightseeing.swift */,
 				5A2DB79726D6428E000EDC46 /* ContextMenu.storyboard */,
 				5A2DB79926D642EE000EDC46 /* ContextMenuViewController.swift */,
 				5A2DB79B26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift */,
 				5A2DB79F26D6C983000EDC46 /* ContextMenuDetailsViewController.swift */,
-				5A2DB79D26D6C15E000EDC46 /* Sightseeing.swift */,
 			);
 			path = ContextMenu;
 			sourceTree = "<group>";

@@ -16,6 +16,7 @@ class ContextMenuDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         titleLabel.text = sightseeing?.name
         guard let imageName = sightseeing?.imageName else { return }
         imageView.image = UIImage(named: imageName)

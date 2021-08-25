@@ -35,6 +35,15 @@ extension ContextMenuViewController: UITableViewDataSource {
 }
 
 extension ContextMenuViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        guard let viewController = storyboard?.instantiateViewController(identifier: "ContextMenuDetailsViewController") as? ContextMenuDetailsViewController
+        else { return }
+        viewController.sightseeing = sightseeings[indexPath.row]
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let sightseeing = sightseeings[indexPath.row]
@@ -93,12 +102,12 @@ extension ContextMenuViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
-//        guard let viewController = animator.previewViewController else { return }
-        guard
-            let viewController = storyboard?.instantiateViewController(identifier: "ContextMenuDetailsViewController") as? ContextMenuDetailsViewController,
-            let identifier = configuration.identifier as? String
-        else { return }
-        viewController.sightseeing = sightseeings.first(where: { $0.imageName == identifier })
+        guard let viewController = animator.previewViewController else { return }
+//        guard
+//            let viewController = storyboard?.instantiateViewController(identifier: "ContextMenuDetailsViewController") as? ContextMenuDetailsViewController,
+//            let identifier = configuration.identifier as? String
+//        else { return }
+//        viewController.sightseeing = sightseeings.first(where: { $0.imageName == identifier })
         animator.addCompletion { [weak self] in
             self?.navigationController?.pushViewController(viewController, animated: true)
         }

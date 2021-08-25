@@ -43,6 +43,7 @@ extension MainMenuViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row != 0 else { return }
+
         let storyboard: UIStoryboard
         let identifier: String
         switch indexPath.row {

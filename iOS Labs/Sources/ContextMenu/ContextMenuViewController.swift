@@ -10,12 +10,12 @@ import UIKit
 final class ContextMenuViewController: UIViewController {
 
     private var sightseeings = [
-        Sightseeing(name: "Central park, Bolzano", image: UIImage(named: "context-menu-bolzano-park")),
-        Sightseeing(name: "Colosseum, Rome", image: UIImage(named: "context-menu-rome-colosseum")),
-        Sightseeing(name: "Santa Maria Novella church, Florence", image: UIImage(named: "context-menu-florence-church")),
-        Sightseeing(name: "Seceda mountain, Ortisei", image: UIImage(named: "context-menu-ortisei-seceda")),
-        Sightseeing(name: "Doge Palace, Venice", image: UIImage(named: "context-menu-venice-palace")),
-        Sightseeing(name: "Trees, Cortaccia", image: UIImage(named: "context-menu-cortaccia-trees"))
+        Sightseeing(name: "Central park, Bolzano", imageName: "context-menu-bolzano-park"),
+        Sightseeing(name: "Colosseum, Rome", imageName: "context-menu-rome-colosseum"),
+        Sightseeing(name: "Santa Maria Novella church, Florence", imageName: "context-menu-florence-church"),
+        Sightseeing(name: "Seceda mountain, Ortisei", imageName: "context-menu-ortisei-seceda"),
+        Sightseeing(name: "Doge Palace, Venice", imageName: "context-menu-venice-palace"),
+        Sightseeing(name: "Trees, Cortaccia", imageName: "context-menu-cortaccia-trees")
     ]
 
 }
@@ -39,13 +39,13 @@ extension ContextMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let sightseeing = sightseeings[indexPath.row]
         return UIContextMenuConfiguration(
-            identifier: nil,
+            identifier: sightseeing.imageName as NSCopying,
             previewProvider: { [weak self] in
                 self?.storyboard
                     .flatMap{ $0.instantiateViewController(identifier: "ContextMenuPreviewViewController") }
                     .flatMap{ $0 as? ContextMenuPreviewViewController }
                     .flatMap{
-                        $0.image = sightseeing.image
+                        $0.image = UIImage(named: "\(sightseeing.imageName)")
                         return $0
                     }
             }
@@ -93,8 +93,14 @@ extension ContextMenuViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
-        animator.addCompletion {
-            print("ASDF 2")
+//        guard let viewController = animator.previewViewController else { return }
+        guard
+            let viewController = storyboard?.instantiateViewController(identifier: "ContextMenuDetailsViewController") as? ContextMenuDetailsViewController,
+            let identifier = configuration.identifier as? String
+        else { return }
+        viewController.sightseeing = sightseeings.first(where: { $0.imageName == identifier })
+        animator.addCompletion { [weak self] in
+            self?.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }

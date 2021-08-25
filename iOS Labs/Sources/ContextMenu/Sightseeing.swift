@@ -5,11 +5,11 @@
 //  Created by Андрей Исаев on 25.08.2021.
 //
 
-import UIKit
+import Foundation
 
 struct Sightseeing {
 
     let name: String
-    let image: UIImage?
+    let imageName: String
 
 }

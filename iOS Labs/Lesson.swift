@@ -11,5 +11,7 @@ struct Lesson: Hashable {
 
     let title: String?
     let description: String?
+    let storyboardName: String?
+    let viewControllerName: String?
 
 }

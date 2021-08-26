@@ -9,7 +9,7 @@ import UIKit
 
 final class ContextMenuViewController: UIViewController {
 
-    private var sightseeings = [
+    private let sightseeings = [
         Sightseeing(name: "Central park, Bolzano", imageName: "context-menu-bolzano-park"),
         Sightseeing(name: "Colosseum, Rome", imageName: "context-menu-rome-colosseum"),
         Sightseeing(name: "Santa Maria Novella church, Florence", imageName: "context-menu-florence-church"),
@@ -25,7 +25,7 @@ extension ContextMenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sightseeings.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContextMenuCell", for: indexPath)
         let sightseeing = sightseeings[indexPath.row]
@@ -48,7 +48,9 @@ extension ContextMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         let sightseeing = sightseeings[indexPath.row]
         return UIContextMenuConfiguration(
-            identifier: sightseeing.imageName as NSCopying,
+            identifier: sightseeing.identifier as NSCopying,
+//            identifier: sightseeing.imageName as NSCopying,
+//            identifier: nil,
             previewProvider: { [weak self] in
                 self?.storyboard
                     .flatMap{ $0.instantiateViewController(identifier: "ContextMenuPreviewViewController") }
@@ -58,6 +60,7 @@ extension ContextMenuViewController: UITableViewDelegate {
                         return $0
                     }
             }
+//            previewProvider: nil
         ) { suggestedActions in
 
             let share = UIAction(
@@ -74,15 +77,23 @@ extension ContextMenuViewController: UITableViewDelegate {
             ) { [weak self] action in
                 self?.showAlert("Отрабатываем действие Order Pizza")
             }
+            
+            let delete = UIAction(
+                title: "Delete",
+                image: UIImage(systemName: "trash"),
+                attributes: .destructive
+            ) { [weak self] action in
+                self?.showAlert("Отрабатываем действие Delete")
+            }
 
             let setInternational = UIAction(
                 title: "International",
                 image: nil,
                 identifier: nil,
-                discoverabilityTitle: nil,
+                discoverabilityTitle: "Здесь мы описываем для чего нужен этот аргумент",
                 state: .on
             ) { [weak self] action in
-                self?.showAlert("Отрабатываем действие Set International")
+                self?.showAlert(action.discoverabilityTitle ?? "")
             }
 
             let setUK = UIAction(
@@ -97,17 +108,18 @@ extension ContextMenuViewController: UITableViewDelegate {
 
             let unitsMenu = UIMenu(title: "Units", image: nil, options: .displayInline, children: [setInternational, setUK])
 
-            return UIMenu(title: "Context Menu", image: nil, children: [share, orderPizza, unitsMenu])
+            return UIMenu(title: "Context Menu", image: nil, children: [share, orderPizza, unitsMenu, delete])
         }
     }
     
     func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
-        guard let viewController = animator.previewViewController else { return }
-//        guard
-//            let viewController = storyboard?.instantiateViewController(identifier: "ContextMenuDetailsViewController") as? ContextMenuDetailsViewController,
-//            let identifier = configuration.identifier as? String
-//        else { return }
-//        viewController.sightseeing = sightseeings.first(where: { $0.imageName == identifier })
+//        guard let viewController = animator.previewViewController else { return }
+        guard
+            let viewController = storyboard?.instantiateViewController(identifier: "ContextMenuDetailsViewController") as? ContextMenuDetailsViewController,
+            let identifier = configuration.identifier as? UUID
+        else { return }
+        print(identifier.uuidString)
+        viewController.sightseeing = sightseeings.first(where: { $0.identifier == identifier })
         animator.addCompletion { [weak self] in
             self?.navigationController?.pushViewController(viewController, animated: true)
         }

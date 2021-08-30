@@ -62,8 +62,16 @@ extension MainMenuViewController {
                     .instantiateViewController(identifier: identifier) as? ContextMenuViewController
             else { return }
             navigationController?.pushViewController(viewController, animated: true)
+        
+        case 3:
+            storyboard = UIStoryboard(name: "GeneratePublishers", bundle: nil)
+            identifier = "GeneratePublishersViewController"
+            guard let viewController = storyboard
+                    .instantiateViewController(identifier: identifier) as? GeneratePublishersViewController
+            else { return }
+            navigationController?.pushViewController(viewController, animated: true)
         default:
-            return
+            break
         }
     }
 

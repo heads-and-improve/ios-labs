@@ -17,6 +17,8 @@
 		5A2DB79C26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DB79B26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift */; };
 		5A2DB79E26D6C15E000EDC46 /* Sightseeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DB79D26D6C15E000EDC46 /* Sightseeing.swift */; };
 		5A2DB7A026D6C983000EDC46 /* ContextMenuDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DB79F26D6C983000EDC46 /* ContextMenuDetailsViewController.swift */; };
+		5A69B48C26DD2662005B5FFF /* GeneratePublishers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A69B48B26DD2662005B5FFF /* GeneratePublishers.storyboard */; };
+		5A69B48E26DD2676005B5FFF /* GeneratePublishersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A69B48D26DD2676005B5FFF /* GeneratePublishersViewController.swift */; };
 		5A8B1B8226BEFA9000A863D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8126BEFA9000A863D7 /* AppDelegate.swift */; };
 		5A8B1B8426BEFA9000A863D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8326BEFA9000A863D7 /* SceneDelegate.swift */; };
 		5A8B1B8926BEFA9000A863D7 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8726BEFA9000A863D7 /* MainMenu.storyboard */; };
@@ -37,6 +39,8 @@
 		5A2DB79B26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuPreviewViewController.swift; sourceTree = "<group>"; };
 		5A2DB79D26D6C15E000EDC46 /* Sightseeing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sightseeing.swift; sourceTree = "<group>"; };
 		5A2DB79F26D6C983000EDC46 /* ContextMenuDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDetailsViewController.swift; sourceTree = "<group>"; };
+		5A69B48B26DD2662005B5FFF /* GeneratePublishers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GeneratePublishers.storyboard; sourceTree = "<group>"; };
+		5A69B48D26DD2676005B5FFF /* GeneratePublishersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePublishersViewController.swift; sourceTree = "<group>"; };
 		5A8B1B7E26BEFA9000A863D7 /* iOS Labs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Labs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A8B1B8126BEFA9000A863D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A8B1B8326BEFA9000A863D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 				5A244CDC26BEFDC400F805B7 /* MainMenu */,
 				5AEEA80426CC470800504685 /* SwipeActions */,
 				5A2DB79626D64276000EDC46 /* ContextMenu */,
+				5A69B48A26DD2491005B5FFF /* GeneratePublishers */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -98,6 +103,15 @@
 				5A2DB79F26D6C983000EDC46 /* ContextMenuDetailsViewController.swift */,
 			);
 			path = ContextMenu;
+			sourceTree = "<group>";
+		};
+		5A69B48A26DD2491005B5FFF /* GeneratePublishers */ = {
+			isa = PBXGroup;
+			children = (
+				5A69B48B26DD2662005B5FFF /* GeneratePublishers.storyboard */,
+				5A69B48D26DD2676005B5FFF /* GeneratePublishersViewController.swift */,
+			);
+			path = GeneratePublishers;
 			sourceTree = "<group>";
 		};
 		5A8B1B7526BEFA9000A863D7 = {
@@ -200,6 +214,7 @@
 				5A8B1B8E26BEFA9200A863D7 /* LaunchScreen.storyboard in Resources */,
 				5AEEA80626CC480B00504685 /* SwipeActions.storyboard in Resources */,
 				5A8B1B8B26BEFA9200A863D7 /* Assets.xcassets in Resources */,
+				5A69B48C26DD2662005B5FFF /* GeneratePublishers.storyboard in Resources */,
 				5A244CE126BFE1DD00F805B7 /* lessons.plist in Resources */,
 				5A8B1B8926BEFA9000A863D7 /* MainMenu.storyboard in Resources */,
 				5A2DB79826D6428E000EDC46 /* ContextMenu.storyboard in Resources */,
@@ -217,6 +232,7 @@
 				5A244CDB26BEFC4F00F805B7 /* MainMenuViewController.swift in Sources */,
 				5A244CE326C00A8D00F805B7 /* MainMenuCellContentConfiguration.swift in Sources */,
 				5A8B1B8226BEFA9000A863D7 /* AppDelegate.swift in Sources */,
+				5A69B48E26DD2676005B5FFF /* GeneratePublishersViewController.swift in Sources */,
 				5A2DB79A26D642EE000EDC46 /* ContextMenuViewController.swift in Sources */,
 				5AEEA80826CC484100504685 /* SwipeActionsViewController.swift in Sources */,
 				5A8B1B8426BEFA9000A863D7 /* SceneDelegate.swift in Sources */,

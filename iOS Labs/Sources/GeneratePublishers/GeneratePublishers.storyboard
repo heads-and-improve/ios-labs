@@ -15,13 +15,63 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="5tz-WE-mjn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="if0-mk-s66">
+                                        <rect key="frame" x="52" y="0.0" width="310.5" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                            <segment title="Third"/>
+                                            <segment title="Fourth"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="handleSelected:" destination="Y6W-OH-hqX" eventType="valueChanged" id="HAG-fG-MiI"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nlV-9S-84I">
+                                        <rect key="frame" x="0.0" y="43" width="414" height="775"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GeneratePublishersCell" id="oH7-7x-Z4w">
+                                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oH7-7x-Z4w" id="T02-42-c2G">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Y6W-OH-hqX" id="XDB-sj-Qgg"/>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="MCQ-qV-IhG"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5tz-WE-mjn" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="3EP-2B-TGI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5tz-WE-mjn" secondAttribute="trailing" id="BSe-45-tfa"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nlV-9S-84I" secondAttribute="trailing" id="JtZ-OQ-u1S"/>
+                            <constraint firstItem="5tz-WE-mjn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="nn3-az-Z8d"/>
+                            <constraint firstItem="nlV-9S-84I" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="py8-Fi-DNf"/>
+                            <constraint firstItem="5tz-WE-mjn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="sqf-XI-ed4"/>
+                            <constraint firstItem="if0-mk-s66" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.75" id="xCV-Oj-n5w"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="if0-mk-s66" id="04C-E4-vHC"/>
+                        <outlet property="tableView" destination="nlV-9S-84I" id="g5a-2U-rcH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90" y="88"/>
+            <point key="canvasLocation" x="89.855072463768124" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>

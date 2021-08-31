@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,57 +17,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="5tz-WE-mjn">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="g1h-r2-Fns">
+                                <rect key="frame" x="20.5" y="68" width="373" height="237"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="if0-mk-s66">
-                                        <rect key="frame" x="52" y="0.0" width="310.5" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="32"/>
                                         <segments>
-                                            <segment title="First"/>
-                                            <segment title="Second"/>
-                                            <segment title="Third"/>
-                                            <segment title="Fourth"/>
+                                            <segment title="Just"/>
+                                            <segment title="Future"/>
+                                            <segment title="PassthroughSubject"/>
+                                            <segment title="@Published"/>
                                         </segments>
                                         <connections>
                                             <action selector="handleSelected:" destination="Y6W-OH-hqX" eventType="valueChanged" id="HAG-fG-MiI"/>
                                         </connections>
                                     </segmentedControl>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nlV-9S-84I">
-                                        <rect key="frame" x="0.0" y="43" width="414" height="775"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GeneratePublishersCell" id="oH7-7x-Z4w">
-                                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oH7-7x-Z4w" id="T02-42-c2G">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Надпись при запуске" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJa-x8-9Jf">
+                                        <rect key="frame" x="37" y="91" width="299" height="37"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ItW-fY-3BD">
+                                        <rect key="frame" x="83" y="188" width="207" height="49"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <state key="normal" title="НАЖМИ!">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
-                                            <outlet property="dataSource" destination="Y6W-OH-hqX" id="XDB-sj-Qgg"/>
-                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="MCQ-qV-IhG"/>
+                                            <action selector="handleTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7Rt-PL-vun"/>
                                         </connections>
-                                    </tableView>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5tz-WE-mjn" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="3EP-2B-TGI"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5tz-WE-mjn" secondAttribute="trailing" id="BSe-45-tfa"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nlV-9S-84I" secondAttribute="trailing" id="JtZ-OQ-u1S"/>
-                            <constraint firstItem="5tz-WE-mjn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="nn3-az-Z8d"/>
-                            <constraint firstItem="nlV-9S-84I" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="py8-Fi-DNf"/>
-                            <constraint firstItem="5tz-WE-mjn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="sqf-XI-ed4"/>
-                            <constraint firstItem="if0-mk-s66" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.75" id="xCV-Oj-n5w"/>
+                            <constraint firstItem="g1h-r2-Fns" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.9" id="0WS-8I-bGF"/>
+                            <constraint firstItem="ItW-fY-3BD" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.5" id="29x-VQ-My9"/>
+                            <constraint firstItem="g1h-r2-Fns" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="G4h-t5-vKA"/>
+                            <constraint firstItem="g1h-r2-Fns" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="aLG-d7-tQy"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button" destination="ItW-fY-3BD" id="gSD-EP-1y0"/>
                         <outlet property="segmentedControl" destination="if0-mk-s66" id="04C-E4-vHC"/>
-                        <outlet property="tableView" destination="nlV-9S-84I" id="g5a-2U-rcH"/>
+                        <outlet property="textLabel" destination="bJa-x8-9Jf" id="Ghm-Sm-GTi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -75,6 +73,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

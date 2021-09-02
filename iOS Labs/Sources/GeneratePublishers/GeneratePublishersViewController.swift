@@ -6,77 +6,64 @@
 //
 
 import UIKit
-//import Combine
+import Combine
 
 final class GeneratePublishersViewController: UIViewController {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var button: UIButton!
-    
-    private enum State {
-        case just
-        case future
-        case passthoughSubject
-        case published
+
+    private enum State: Int {
+        case just = 0
+        case future = 1
+        case passthoughSubject = 2
+        case published = 3
     }
-    
+
     private var state: State = .just
-    
-//    private let passthroughSubject = PassthroughSubject<String, Error>()
-//    private let input = Input()
-//    private var cancellables = Set<AnyCancellable>()
-    
+
+    private let passthroughSubject = PassthroughSubject<String, Error>()
+    private let input = Input()
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         button.layer.cornerRadius = 8.0
-        
-//        passthroughSubject
-//            .subscribe(on: RunLoop.main)
-//            .sink(
-//                receiveCompletion: { completion in
-//                    switch completion {
-//                    case .finished:
-//                        break
-//                    case .failure(let error):
-//                        print(error)
-//                    }
-//                },
-//                receiveValue: { [weak self] value in
-//                    self?.textLabel.text = value
-//                }
-//            ).store(in: &cancellables)
-//
-//        input.$text
-//            .subscribe(on: RunLoop.main)
-//            .sink(
-//                receiveCompletion: { completion in
-//                    switch completion {
-//                    case .finished:
-//                        break
-//                    case .failure(let error):
-//                        print(error)
-//                    }
-//                },
-//                receiveValue: { [weak self] value in
-//                    self?.textLabel.text = value
-//                }
-//            ).store(in: &cancellables)
+
+        passthroughSubject
+            .sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print(error)
+                    }
+                },
+                receiveValue: { [weak self] value in
+                    self?.label.text = value
+                }
+            ).store(in: &cancellables)
+
+        input.$text
+            .sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print(error)
+                    }
+                },
+                receiveValue: { [weak self] value in
+                    self?.label.text = value
+                }
+            ).store(in: &cancellables)
     }
-    
+
     @IBAction func handleSelected(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            state = .just
-        case 1:
-            state = .future
-        case 2:
-            state = .passthoughSubject
-        case 3:
-            state = .published
-        default:
-            fatalError("Unknown Index")
-        }
+        state = .init(rawValue: segmentedControl.selectedSegmentIndex) ?? .just
     }
 
     @IBAction func handleTapped(_ sender: Any) {
@@ -84,51 +71,48 @@ final class GeneratePublishersViewController: UIViewController {
         formatter.dateFormat = "HH:mm:ss"
         let timeString = formatter.string(from: Date())
         let text = "Сообщение в " + timeString
-        
+
         switch state {
         case .just:
-//            Just(text)
-//                .sink(
-//                    receiveCompletion: { completion in
-//                        switch completion {
-//                        case .finished:
-//                            break
-//                        case .failure(let error):
-//                            print(error.localizedDescription)
-//                        }
-//                    },
-//                    receiveValue: { [weak self] value in
-//                        self?.textLabel.text = value
-//                    }
-//                ).store(in: &cancellables)
-            textLabel.text = text
+            Just(text)
+                .sink(
+                    receiveCompletion: { completion in
+                        switch completion {
+                        case .finished:
+                            break
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    },
+                    receiveValue: { [weak self] value in
+                        self?.label.text = value
+                    }
+                ).store(in: &cancellables)
 
         case .future:
-//            Future<String, Error> { promise in
-//                promise(.success(text))
-//            }
-//            .sink(
-//                receiveCompletion: { completion in
-//                    switch completion {
-//                    case .finished:
-//                        break
-//                    case .failure(let error):
-//                        print(error)
-//                    }
-//                },
-//                receiveValue: { [weak self] value in
-//                    self?.textLabel.text = value
-//                }
-//            ).store(in: &cancellables)
-            textLabel.text = text
+            Future<String, Error> { promise in
+                promise(.success(text))
+            }
+            .sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        print(error)
+                    }
+                },
+                receiveValue: { [weak self] value in
+                    self?.label.text = value
+                }
+            ).store(in: &cancellables)
 
         case .passthoughSubject:
-//            passthroughSubject.send(text)
-            textLabel.text = text
+            passthroughSubject.send(text)
+//            label.text = text
 
         case .published:
-//            input.text = text
-            textLabel.text = text
+            input.text = text
 
         }
     }

@@ -32,11 +32,11 @@
 		<key>title</key>
 		<string>Урок 3. Combine 1/3</string>
 		<key>description</key>
-		<string>Рассказываю как создавать Publisher разными способами на примере поиска url фотографий во Flickr</string>
+		<string>Рассказываю как создавать Publisher разными способами на простом примере</string>
 		<key>storyboardName</key>
-		<string>CombinePublishers</string>
+		<string>GeneratePublishers</string>
 		<key>viewControllerName</key>
-		<string>CombinePublishersViewController</string>
+		<string>GeneratePublishersViewController</string>
 	</dict>
 </array>
 </plist>

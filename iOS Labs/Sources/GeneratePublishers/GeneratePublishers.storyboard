@@ -63,8 +63,8 @@
                     </view>
                     <connections>
                         <outlet property="button" destination="ItW-fY-3BD" id="gSD-EP-1y0"/>
+                        <outlet property="label" destination="bJa-x8-9Jf" id="Ghm-Sm-GTi"/>
                         <outlet property="segmentedControl" destination="if0-mk-s66" id="04C-E4-vHC"/>
-                        <outlet property="textLabel" destination="bJa-x8-9Jf" id="Ghm-Sm-GTi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

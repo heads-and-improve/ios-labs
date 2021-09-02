@@ -43,12 +43,12 @@ extension MainMenuViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row != 0 else { return }
+        guard let storyboardName = lessons[indexPath.row].storyboardName else { return }
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
 
-        let storyboard: UIStoryboard
         let identifier: String
         switch indexPath.row {
         case 1:
-            storyboard = UIStoryboard(name: "SwipeActions", bundle: nil)
             identifier = "SwipeActionsViewController"
             guard let viewController = storyboard
                     .instantiateViewController(identifier: identifier) as? SwipeActionsViewController
@@ -56,14 +56,20 @@ extension MainMenuViewController {
             navigationController?.pushViewController(viewController, animated: true)
             
         case 2:
-            storyboard = UIStoryboard(name: "ContextMenu", bundle: nil)
             identifier = "ContextMenuViewController"
             guard let viewController = storyboard
                     .instantiateViewController(identifier: identifier) as? ContextMenuViewController
             else { return }
             navigationController?.pushViewController(viewController, animated: true)
+        
+        case 3:
+            identifier = "GeneratePublishersViewController"
+            guard let viewController = storyboard
+                    .instantiateViewController(identifier: identifier) as? GeneratePublishersViewController
+            else { return }
+            navigationController?.pushViewController(viewController, animated: true)
         default:
-            return
+            break
         }
     }
 

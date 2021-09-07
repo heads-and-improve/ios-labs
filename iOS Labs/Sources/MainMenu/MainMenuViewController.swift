@@ -68,6 +68,12 @@ extension MainMenuViewController {
                     .instantiateViewController(identifier: identifier) as? GeneratePublishersViewController
             else { return }
             navigationController?.pushViewController(viewController, animated: true)
+        case 4:
+            identifier = "CombineOperatorsViewController"
+            guard let viewController = storyboard
+                    .instantiateViewController(identifier: identifier) as? CombineOperatorsViewController
+            else { return }
+            navigationController?.pushViewController(viewController, animated: true)
         default:
             break
         }

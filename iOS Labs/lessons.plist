@@ -38,5 +38,15 @@
 		<key>viewControllerName</key>
 		<string>GeneratePublishersViewController</string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>Урок 4. Combine 2/3</string>
+		<key>description</key>
+		<string>Рассказываю как комбинировать различные паблишеры на примере загрузки фотографий из Flickr</string>
+		<key>storyboardName</key>
+		<string>CombineOperators</string>
+		<key>viewControllerName</key>
+		<string>CombineOperatorsViewController</string>
+	</dict>
 </array>
 </plist>

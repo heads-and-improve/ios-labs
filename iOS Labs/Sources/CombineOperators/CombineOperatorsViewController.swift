@@ -10,6 +10,8 @@ import Combine
 
 final class CombineOperatorsViewController: UIViewController {
     
+    private var images: [UIImage] = []
+    
     private var isBusy = false
 
     private var cancellables = Set<AnyCancellable>()
@@ -30,15 +32,34 @@ final class CombineOperatorsViewController: UIViewController {
 
 }
 
+extension CombineOperatorsViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        images.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FlickrPhotoCell", for: indexPath)
+        cell.imageView?.image = images[indexPath.row]
+        return cell
+    }
+}
+
 extension CombineOperatorsViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
         guard let text = searchBar.text else { return }
 
         guard !isBusy else { return }
         isBusy = true
         spinner.startAnimating()
-        
+        let apiKey = Bundle.main.url(forResource: "secrets", withExtension: "plist")
+            .flatMap { try? Data(contentsOf: $0) }
+            .flatMap { try? PropertyListSerialization.propertyList(from: $0, options: [], format: nil) }
+            .flatMap { $0 as? Dictionary<String, String> }
+            .flatMap { $0["apiKey"] }
+
         var components = URLComponents()
         components.scheme = "https"
         guard let url = components.url else { return }
@@ -47,47 +68,4 @@ extension CombineOperatorsViewController: UISearchBarDelegate {
             self?.spinner.stopAnimating()
         }
     }
-}
-
-struct RequestFactory {
-
-    typealias Method = (_ endpoint: URL, _ value: String) -> URLRequest?
-
-    private let endpointString: String
-    private let method: Method
-
-    init(_ endpointString: String, method: @escaping Method) {
-        self.endpointString = endpointString
-        self.method = method
-    }
-
-    func callAsFunction(_ value: String) -> URLRequest? {
-        URL(string: endpointString)
-            .flatMap { endpoint in self.method(endpoint, value) }
-    }
-}
-
-struct NetworkingUseCase {
-
-    private let factory: RequestFactory
-
-    init(factory: RequestFactory) {
-        self.factory = factory
-    }
-
-    func callAsFunction<S: Decodable>(_ value: String) -> AnyPublisher<S, Error> {
-        factory(value)
-            .flatMap { request in
-                URLSession.shared.dataTaskPublisher(for: request)
-                    .map { data, _ in data }
-                    .decode(type: S.self, decoder: JSONDecoder())
-                    .eraseToAnyPublisher()
-            }
-            ?? Fail(error: NetworkingError.some).eraseToAnyPublisher()
-    }
-
-    enum NetworkingError: Error {
-        case some
-    }
-    
 }

@@ -22,6 +22,7 @@ struct NetworkingUseCase {
                 URLSession.shared.dataTaskPublisher(for: request)
                     .map { data, _ in data }
                     .decode(type: T.self, decoder: JSONDecoder())
+                    .do { UserDefaults.standard.setValue($0, forKey: "kToken") }
                     .eraseToAnyPublisher()
             }
             ?? Fail(error: NetworkingError.badUrl).eraseToAnyPublisher()
@@ -32,4 +33,15 @@ struct NetworkingUseCase {
         case other
     }
     
+}
+
+fileprivate extension Publisher {
+    
+    func `do`(_ sideEffect: @escaping (Output) -> Void) -> AnyPublisher<Output, Failure> {
+        map { value in
+            sideEffect(value)
+            return value
+        }
+        .eraseToAnyPublisher()
+    }
 }

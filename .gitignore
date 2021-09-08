@@ -88,3 +88,9 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# Secrets
+#
+# Here are listed files containing personal or secure information
+
+CombineOperators/secrets.plist

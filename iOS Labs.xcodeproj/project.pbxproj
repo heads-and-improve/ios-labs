@@ -23,7 +23,8 @@
 		5A6B89F626E7F7370097DA62 /* CombineOperators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A6B89F526E7F7370097DA62 /* CombineOperators.storyboard */; };
 		5A6B89F926E7F7620097DA62 /* CombineOperatorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B89F826E7F7620097DA62 /* CombineOperatorsViewController.swift */; };
 		5A6B89FB26E817990097DA62 /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6B89FA26E817990097DA62 /* secrets.plist */; };
-		5A6B89FE26E8D9030097DA62 /* NetworkingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B89FD26E8D9030097DA62 /* NetworkingUseCase.swift */; };
+		5A6B89FE26E8D9030097DA62 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B89FD26E8D9030097DA62 /* RequestFactory.swift */; };
+		5A6B8A0026E8EE6D0097DA62 /* NetworkingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B89FF26E8EE6D0097DA62 /* NetworkingUseCase.swift */; };
 		5A8B1B8226BEFA9000A863D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8126BEFA9000A863D7 /* AppDelegate.swift */; };
 		5A8B1B8426BEFA9000A863D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8326BEFA9000A863D7 /* SceneDelegate.swift */; };
 		5A8B1B8926BEFA9000A863D7 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8726BEFA9000A863D7 /* MainMenu.storyboard */; };
@@ -50,7 +51,8 @@
 		5A6B89F526E7F7370097DA62 /* CombineOperators.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineOperators.storyboard; sourceTree = "<group>"; };
 		5A6B89F826E7F7620097DA62 /* CombineOperatorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineOperatorsViewController.swift; sourceTree = "<group>"; };
 		5A6B89FA26E817990097DA62 /* secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
-		5A6B89FD26E8D9030097DA62 /* NetworkingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingUseCase.swift; sourceTree = "<group>"; };
+		5A6B89FD26E8D9030097DA62 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
+		5A6B89FF26E8EE6D0097DA62 /* NetworkingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingUseCase.swift; sourceTree = "<group>"; };
 		5A8B1B7E26BEFA9000A863D7 /* iOS Labs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Labs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A8B1B8126BEFA9000A863D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A8B1B8326BEFA9000A863D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,10 +133,19 @@
 			children = (
 				5A6B89F526E7F7370097DA62 /* CombineOperators.storyboard */,
 				5A6B89F826E7F7620097DA62 /* CombineOperatorsViewController.swift */,
-				5A6B89FD26E8D9030097DA62 /* NetworkingUseCase.swift */,
+				5A6B8A0126E8EE8B0097DA62 /* Networking */,
 				5A6B89FA26E817990097DA62 /* secrets.plist */,
 			);
 			path = CombineOperators;
+			sourceTree = "<group>";
+		};
+		5A6B8A0126E8EE8B0097DA62 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5A6B89FF26E8EE6D0097DA62 /* NetworkingUseCase.swift */,
+				5A6B89FD26E8D9030097DA62 /* RequestFactory.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		5A8B1B7526BEFA9000A863D7 = {
@@ -256,7 +267,8 @@
 				5A6B89F926E7F7620097DA62 /* CombineOperatorsViewController.swift in Sources */,
 				5A2DB7A026D6C983000EDC46 /* ContextMenuDetailsViewController.swift in Sources */,
 				5A244CDB26BEFC4F00F805B7 /* MainMenuViewController.swift in Sources */,
-				5A6B89FE26E8D9030097DA62 /* NetworkingUseCase.swift in Sources */,
+				5A6B8A0026E8EE6D0097DA62 /* NetworkingUseCase.swift in Sources */,
+				5A6B89FE26E8D9030097DA62 /* RequestFactory.swift in Sources */,
 				5A244CE326C00A8D00F805B7 /* MainMenuCellContentConfiguration.swift in Sources */,
 				5A8B1B8226BEFA9000A863D7 /* AppDelegate.swift in Sources */,
 				5A69B48E26DD2676005B5FFF /* GeneratePublishersViewController.swift in Sources */,

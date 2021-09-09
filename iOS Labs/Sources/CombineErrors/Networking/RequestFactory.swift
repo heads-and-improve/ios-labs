@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import Combine
 
 struct RequestFactory {
 
-    typealias Make = (_ apiKey: String?, _ value: String) -> String
+    typealias Make = (_ apiKey: String?, _ value: String) -> String?
     typealias Transform = (_ request: URLRequest) -> URLRequest
 
     private let endpointStr: String
@@ -33,11 +32,14 @@ struct RequestFactory {
     }
 
     func callAsFunction(_ value: String) -> URLRequest? {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = self.endpointStr
-        components.path = self.make(self.apiKey, value)
-        return components.url
+        self.make(self.apiKey, value)
+            .flatMap { path in
+                var components = URLComponents()
+                components.scheme = "https"
+                components.host = self.endpointStr
+                components.path = path
+                return components.url
+            }
             .flatMap { URLRequest(url: $0) }
             .flatMap(self.transform)
     }

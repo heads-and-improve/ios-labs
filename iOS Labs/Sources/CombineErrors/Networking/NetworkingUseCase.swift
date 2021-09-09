@@ -16,21 +16,21 @@ struct NetworkingUseCase {
         self.factory = factory
     }
 
-    func callAsFunction<T: Decodable>(_ value: String) -> AnyPublisher<T, Error> {
+    func callAsFunction<T: Decodable>(_ value: String) -> AnyPublisher<T, Swift.Error> {
         factory(value)
             .flatMap { request in
                 URLSession.shared.dataTaskPublisher(for: request)
                     .map { data, _ in data }
                     .decode(type: T.self, decoder: JSONDecoder())
-                    .do { UserDefaults.standard.setValue($0, forKey: "kToken") }
                     .eraseToAnyPublisher()
             }
-            ?? Fail(error: NetworkingError.badUrl).eraseToAnyPublisher()
+            ?? Fail(error: Error.unknown).eraseToAnyPublisher()
     }
 
-    enum NetworkingError: Error {
-        case badUrl
-        case other
+    struct Error: Swift.Error {
+        let message: String
+
+        static let unknown = Error(message: "Unknown error occured")
     }
     
 }

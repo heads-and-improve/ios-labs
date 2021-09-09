@@ -27,6 +27,13 @@
 		5A6B8A0026E8EE6D0097DA62 /* NetworkingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B89FF26E8EE6D0097DA62 /* NetworkingUseCase.swift */; };
 		5A6B8A0626E93F4C0097DA62 /* FlickrPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8A0526E93F4C0097DA62 /* FlickrPhotoCell.swift */; };
 		5A6B8A0826E9425A0097DA62 /* FlickrResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8A0726E9425A0097DA62 /* FlickrResponse.swift */; };
+		5A6B8A6926EA5C670097DA62 /* AutoResizingTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8A6826EA5C670097DA62 /* AutoResizingTextViewController.swift */; };
+		5A6B8A6C26EA5CA50097DA62 /* AutoResizingText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A6B8A6B26EA5CA50097DA62 /* AutoResizingText.storyboard */; };
+		5A6B8A6E26EA5F6F0097DA62 /* UIScreen+ScreenWIdthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8A6D26EA5F6E0097DA62 /* UIScreen+ScreenWIdthType.swift */; };
+		5A6B8A7026EA61840097DA62 /* TextStyleSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8A6F26EA61840097DA62 /* TextStyleSet.swift */; };
+		5A6B8A9826EA86B50097DA62 /* ImageKeyed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8A9726EA86B50097DA62 /* ImageKeyed.swift */; };
+		5A6B8A9A26EA875A0097DA62 /* ImageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8A9926EA875A0097DA62 /* ImageKey.swift */; };
+		5A6B8A9C26EA9ADB0097DA62 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8A9B26EA9ADB0097DA62 /* ColorPalette.swift */; };
 		5A8B1B8226BEFA9000A863D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8126BEFA9000A863D7 /* AppDelegate.swift */; };
 		5A8B1B8426BEFA9000A863D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8326BEFA9000A863D7 /* SceneDelegate.swift */; };
 		5A8B1B8926BEFA9000A863D7 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8726BEFA9000A863D7 /* MainMenu.storyboard */; };
@@ -57,6 +64,13 @@
 		5A6B89FF26E8EE6D0097DA62 /* NetworkingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingUseCase.swift; sourceTree = "<group>"; };
 		5A6B8A0526E93F4C0097DA62 /* FlickrPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotoCell.swift; sourceTree = "<group>"; };
 		5A6B8A0726E9425A0097DA62 /* FlickrResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrResponse.swift; sourceTree = "<group>"; };
+		5A6B8A6826EA5C670097DA62 /* AutoResizingTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoResizingTextViewController.swift; sourceTree = "<group>"; };
+		5A6B8A6B26EA5CA50097DA62 /* AutoResizingText.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoResizingText.storyboard; sourceTree = "<group>"; };
+		5A6B8A6D26EA5F6E0097DA62 /* UIScreen+ScreenWIdthType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+ScreenWIdthType.swift"; sourceTree = "<group>"; };
+		5A6B8A6F26EA61840097DA62 /* TextStyleSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleSet.swift; sourceTree = "<group>"; };
+		5A6B8A9726EA86B50097DA62 /* ImageKeyed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageKeyed.swift; sourceTree = "<group>"; };
+		5A6B8A9926EA875A0097DA62 /* ImageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageKey.swift; sourceTree = "<group>"; };
+		5A6B8A9B26EA9ADB0097DA62 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		5A8B1B7E26BEFA9000A863D7 /* iOS Labs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Labs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A8B1B8126BEFA9000A863D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A8B1B8326BEFA9000A863D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +112,7 @@
 				5A69B48A26DD2491005B5FFF /* GeneratePublishers */,
 				5A6B89F726E7F7480097DA62 /* CombineOperators */,
 				5A6B8A0426E905150097DA62 /* CombineErrors */,
+				5A6B8A6A26EA5C760097DA62 /* AutoResizingText */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -160,6 +175,20 @@
 				5A6B8A0126E8EE8B0097DA62 /* Networking */,
 			);
 			path = CombineErrors;
+			sourceTree = "<group>";
+		};
+		5A6B8A6A26EA5C760097DA62 /* AutoResizingText */ = {
+			isa = PBXGroup;
+			children = (
+				5A6B8A6B26EA5CA50097DA62 /* AutoResizingText.storyboard */,
+				5A6B8A6826EA5C670097DA62 /* AutoResizingTextViewController.swift */,
+				5A6B8A6D26EA5F6E0097DA62 /* UIScreen+ScreenWIdthType.swift */,
+				5A6B8A6F26EA61840097DA62 /* TextStyleSet.swift */,
+				5A6B8A9B26EA9ADB0097DA62 /* ColorPalette.swift */,
+				5A6B8A9726EA86B50097DA62 /* ImageKeyed.swift */,
+				5A6B8A9926EA875A0097DA62 /* ImageKey.swift */,
+			);
+			path = AutoResizingText;
 			sourceTree = "<group>";
 		};
 		5A8B1B7526BEFA9000A863D7 = {
@@ -268,6 +297,7 @@
 				5A6B89F626E7F7370097DA62 /* CombineOperators.storyboard in Resources */,
 				5A2DB79826D6428E000EDC46 /* ContextMenu.storyboard in Resources */,
 				5A6B89FB26E817990097DA62 /* secrets.plist in Resources */,
+				5A6B8A6C26EA5CA50097DA62 /* AutoResizingText.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +310,8 @@
 			files = (
 				5A6B89F926E7F7620097DA62 /* CombineOperatorsViewController.swift in Sources */,
 				5A2DB7A026D6C983000EDC46 /* ContextMenuDetailsViewController.swift in Sources */,
+				5A6B8A6926EA5C670097DA62 /* AutoResizingTextViewController.swift in Sources */,
+				5A6B8A7026EA61840097DA62 /* TextStyleSet.swift in Sources */,
 				5A244CDB26BEFC4F00F805B7 /* MainMenuViewController.swift in Sources */,
 				5A6B8A0026E8EE6D0097DA62 /* NetworkingUseCase.swift in Sources */,
 				5A6B89FE26E8D9030097DA62 /* RequestFactory.swift in Sources */,
@@ -287,12 +319,16 @@
 				5A8B1B8226BEFA9000A863D7 /* AppDelegate.swift in Sources */,
 				5A6B8A0626E93F4C0097DA62 /* FlickrPhotoCell.swift in Sources */,
 				5A69B48E26DD2676005B5FFF /* GeneratePublishersViewController.swift in Sources */,
+				5A6B8A9C26EA9ADB0097DA62 /* ColorPalette.swift in Sources */,
 				5A2DB79A26D642EE000EDC46 /* ContextMenuViewController.swift in Sources */,
 				5AEEA80826CC484100504685 /* SwipeActionsViewController.swift in Sources */,
+				5A6B8A9A26EA875A0097DA62 /* ImageKey.swift in Sources */,
+				5A6B8A9826EA86B50097DA62 /* ImageKeyed.swift in Sources */,
 				5A6B8A0826E9425A0097DA62 /* FlickrResponse.swift in Sources */,
 				5A8B1B8426BEFA9000A863D7 /* SceneDelegate.swift in Sources */,
 				5A244CE526C00AE500F805B7 /* MainMenuContentView.swift in Sources */,
 				5A244CDF26BF033C00F805B7 /* Lesson.swift in Sources */,
+				5A6B8A6E26EA5F6F0097DA62 /* UIScreen+ScreenWIdthType.swift in Sources */,
 				5A2DB79E26D6C15E000EDC46 /* Sightseeing.swift in Sources */,
 				5A69B49026DE2861005B5FFF /* Input.swift in Sources */,
 				5A2DB79C26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift in Sources */,

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Combine Errors View Controller-->
+        <scene sceneID="9ba-hn-hfu">
+            <objects>
+                <viewController storyboardIdentifier="CombineErrorsViewController" id="8DP-na-stH" customClass="CombineErrorsViewController" customModule="iOS_Labs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mCb-PM-abO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="opl-UC-y6O">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FlickrPhotoCell" id="N04-pz-tFe" customClass="FlickrPhotoCell" customModule="iOS_Labs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="298.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N04-pz-tFe" id="CQI-KK-gz7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="298.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EIY-Hs-daQ">
+                                                    <rect key="frame" x="24" y="24" width="366" height="250.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="250" id="YcU-Qq-rJr"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EIY-Hs-daQ" firstAttribute="leading" secondItem="CQI-KK-gz7" secondAttribute="leading" constant="24" id="G8M-A8-JfQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="EIY-Hs-daQ" secondAttribute="trailing" constant="24" id="ZnB-Qr-iLt"/>
+                                                <constraint firstAttribute="bottom" secondItem="EIY-Hs-daQ" secondAttribute="bottom" constant="24" id="bcR-eD-wUH"/>
+                                                <constraint firstItem="EIY-Hs-daQ" firstAttribute="top" secondItem="CQI-KK-gz7" secondAttribute="top" constant="24" id="pel-cW-maM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="photoView" destination="EIY-Hs-daQ" id="Rid-MX-hjP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8DP-na-stH" id="Xg9-c3-flS"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="tLr-zN-tre">
+                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UHS-bN-mgq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="opl-UC-y6O" firstAttribute="leading" secondItem="UHS-bN-mgq" secondAttribute="leading" id="0pL-gS-84H"/>
+                            <constraint firstItem="tLr-zN-tre" firstAttribute="centerX" secondItem="UHS-bN-mgq" secondAttribute="centerX" id="jLi-cn-pSE"/>
+                            <constraint firstItem="opl-UC-y6O" firstAttribute="top" secondItem="UHS-bN-mgq" secondAttribute="top" id="lNC-Dc-YJv"/>
+                            <constraint firstItem="UHS-bN-mgq" firstAttribute="trailing" secondItem="opl-UC-y6O" secondAttribute="trailing" id="snY-Xc-lUI"/>
+                            <constraint firstItem="tLr-zN-tre" firstAttribute="centerY" secondItem="UHS-bN-mgq" secondAttribute="centerY" id="v8e-cc-UYZ"/>
+                            <constraint firstItem="UHS-bN-mgq" firstAttribute="bottom" secondItem="opl-UC-y6O" secondAttribute="bottom" id="wn3-PF-Daq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="spinner" destination="tLr-zN-tre" id="D6F-dJ-XXm"/>
+                        <outlet property="tableView" destination="opl-UC-y6O" id="2ga-DS-b9C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6u-RZ-kZ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="90" y="48"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

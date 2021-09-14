@@ -7,31 +7,43 @@
 
 import Foundation
 
-struct RequestFactory {
+struct RequestFactory<Value> {
 
-    typealias Make = (_ apiKey: String?, _ value: String) -> String?
-    typealias Transform = (_ request: URLRequest) -> URLRequest
+    typealias MakePath = (_ apiKey: String?, _ value: Value) -> String?
+    typealias TransformRequest = (_ request: URLRequest) -> URLRequest
+    typealias TransformPath = (_ path: String) -> String
 
     private let endpointStr: String
     private let apiKey: String?
-    private let make: Make
-    private let transform: Transform
+    private let make: MakePath
+    private let transformRequest: TransformRequest
+    private let transformPath: TransformPath
 
-    init(endpointStr: String, apiKey: String? = nil, make: @escaping Make) {
+    init(endpointStr: String, apiKey: String? = nil, make: @escaping MakePath) {
         self.endpointStr = endpointStr
         self.apiKey = apiKey
         self.make = make
-        self.transform = { $0 }
+        self.transformRequest = { $0 }
+        self.transformPath = { $0 }
     }
     
-    private init(factory: RequestFactory, transform: @escaping Transform) {
+    private init(factory: RequestFactory, transform: @escaping TransformRequest) {
         self.endpointStr = factory.endpointStr
         self.apiKey = factory.apiKey
         self.make = factory.make
-        self.transform = transform
+        self.transformRequest = transform
+        self.transformPath = { $0 }
+    }
+    
+    private init(factory: RequestFactory, transform: @escaping TransformPath) {
+        self.endpointStr = factory.endpointStr
+        self.apiKey = factory.apiKey
+        self.make = factory.make
+        self.transformRequest = { $0 }
+        self.transformPath = transform
     }
 
-    func callAsFunction(_ value: String) -> URLRequest? {
+    func callAsFunction(_ value: Value) -> URLRequest? {
         self.make(self.apiKey, value)
             .flatMap { path in
                 var components = URLComponents()
@@ -41,10 +53,14 @@ struct RequestFactory {
                 return components.url
             }
             .flatMap { URLRequest(url: $0) }
-            .flatMap(self.transform)
+            .flatMap(self.transformRequest)
     }
 
-    func map(_ transform: @escaping Transform) -> RequestFactory {
+    func mapRequest(_ transform: @escaping TransformRequest) -> RequestFactory {
+        RequestFactory(factory: self, transform: transform)
+    }
+    
+    func mapPath(_ transform: @escaping TransformPath) -> RequestFactory {
         RequestFactory(factory: self, transform: transform)
     }
 }
@@ -52,7 +68,7 @@ struct RequestFactory {
 extension RequestFactory {
 
     func get() -> RequestFactory {
-        map { request in
+        mapRequest { request in
             var request = request
             request.httpMethod = "GET"
             return request
@@ -60,7 +76,7 @@ extension RequestFactory {
     }
 
     func post() -> RequestFactory {
-        map { request in
+        mapRequest { request in
             var request = request
             request.httpMethod = "POST"
             return request
@@ -68,7 +84,7 @@ extension RequestFactory {
     }
     
     func addingValue(_ value: String, forHTTPHeaderField header: String) -> RequestFactory {
-        map { request in
+        mapRequest { request in
             var request = request
             request.addValue(value, forHTTPHeaderField: header)
             return request
@@ -76,7 +92,7 @@ extension RequestFactory {
     }
 
     func addingValue(_ token: String) -> RequestFactory {
-        map { request in
+        mapRequest { request in
             var request = request
             request.addValue(token, forHTTPHeaderField: "Authorization")
             return request
@@ -88,7 +104,7 @@ extension RequestFactory {
     }
 
     func appending(_ data: Data?) -> RequestFactory {
-        map { request in
+        mapRequest { request in
             var request = request
             request.httpBody = data
             return request

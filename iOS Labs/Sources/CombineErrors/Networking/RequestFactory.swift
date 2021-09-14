@@ -45,13 +45,7 @@ struct RequestFactory<Value> {
 
     func callAsFunction(_ value: Value) -> URLRequest? {
         self.make(self.apiKey, value)
-            .flatMap { path in
-                var components = URLComponents()
-                components.scheme = "https"
-                components.host = self.endpointStr
-                components.path = path
-                return components.url
-            }
+            .flatMap { path in URL(string: self.endpointStr + path) }
             .flatMap { URLRequest(url: $0) }
             .flatMap(self.transformRequest)
     }

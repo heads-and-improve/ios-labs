@@ -12,7 +12,7 @@ enum NetworkableError: Error {
 
     case url(URLError)
     case decoding(Error)
-    case other
+    case other(String?)
 
 }
 

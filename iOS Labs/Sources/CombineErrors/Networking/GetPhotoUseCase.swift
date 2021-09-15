@@ -17,7 +17,7 @@ struct GetPhotoUseCase: Networkable {
             "\(value.server)/\(value.id)_\(value.secret)_c.jpg"
         }
     }
-    
+
     func callAsFunction(_ photo: FlickrResponse.Photos.Photo) -> AnyPublisher<UIImage?, Error> {
         factory((photo.server, photo.id, photo.secret))
             .flatMap { self.load($0) }

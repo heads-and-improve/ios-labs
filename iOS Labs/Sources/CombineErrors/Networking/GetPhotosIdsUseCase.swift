@@ -9,20 +9,17 @@ import Foundation
 import Combine
 
 struct GetPhotosIdsUseCase: Networkable {
-    
+
     private let factory: RequestFactory<String>
-    
+
     init() {
         let apiKey = Bundle.main.url(forResource: "secrets", withExtension: "plist")
             .flatMap { try? Data(contentsOf: $0) }
             .flatMap { try? PropertyListSerialization.propertyList(from: $0, options: [], format: nil) }
             .flatMap { $0 as? Dictionary<String, String> }
             .flatMap { $0["apiKey"] }
-        
-        self.factory = .init(
-            endpointStr: "https://www.flickr.com/services/rest/",
-            apiKey: apiKey
-        ) { apiKey, value in
+
+        self.factory = .init(endpointStr: "https://www.flickr.com/services/rest/", apiKey: apiKey) { apiKey, value in
             guard let apiKey = apiKey else { return nil }
             return "?method=flickr.photos.search"
                 + "&api_key=\(apiKey)"
@@ -33,7 +30,7 @@ struct GetPhotosIdsUseCase: Networkable {
                 + "&nojsoncallback=1"
         }
     }
-    
+
     func callAsFunction(_ tag: String) -> AnyPublisher<[FlickrResponse.Photos.Photo], Error> {
         factory(tag)
             .flatMap {

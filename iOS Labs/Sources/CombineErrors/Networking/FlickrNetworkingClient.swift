@@ -18,10 +18,10 @@ final class FlickrNetworkingClient {
     var onStart: (() -> Void)?
     var onSuccess: (([UIImage]) -> Void)?
     var onError: ((String) -> Void)?
-    
+
     init() {
         let getPhotos = GetPhotosUseCase()
-        
+
         tagEvent
             .filter { [weak self] _ in !(self?.isBusy ?? true) }
             .do { [weak self] _ in self?.isBusy = true }

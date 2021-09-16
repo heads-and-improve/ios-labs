@@ -10,7 +10,7 @@ import Combine
 
 final class CombineOperatorsViewController: UIViewController {
     
-    private var images: [UIImage?] = []
+    private var images: [UIImage] = []
     private var urlsStrings: [String] = []
     
     private var isBusy = false
@@ -36,6 +36,7 @@ final class CombineOperatorsViewController: UIViewController {
 extension CombineOperatorsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        urlsStrings.count
         images.count
     }
     
@@ -44,6 +45,8 @@ extension CombineOperatorsViewController: UITableViewDataSource {
             fatalError("Could not instantiate cell")
         }
         cell.photoView.image = images[indexPath.row]
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "FlickrPhotoCell", for: indexPath)
+//        cell.textLabel?.text = urlsStrings[indexPath.row]
         return cell
     }
 }
@@ -52,11 +55,13 @@ extension CombineOperatorsViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
-        guard let text = searchBar.text else { return }
+        guard
+            let text = searchBar.text,
+            !text.isEmpty,
+            !isBusy
+        else { return }
+        setUIToLoading()
 
-        guard !isBusy else { return }
-        isBusy = true
-        spinner.startAnimating()
         let apiKey = Bundle.main.url(forResource: "secrets", withExtension: "plist")
             .flatMap { try? Data(contentsOf: $0) }
             .flatMap { try? PropertyListSerialization.propertyList(from: $0, options: [], format: nil) }
@@ -65,7 +70,7 @@ extension CombineOperatorsViewController: UISearchBarDelegate {
 
         var components = URLComponents()
         components.scheme = "https"
-        components.host = "www.flickr.com"
+        components.host = "flickr.com"
         components.path = "/services/rest/"
         components.queryItems = [
             URLQueryItem(name: "method", value: "flickr.photos.search"),
@@ -74,7 +79,7 @@ extension CombineOperatorsViewController: UISearchBarDelegate {
             URLQueryItem(name: "per_page", value: "25"),
             URLQueryItem(name: "page", value: "1"),
             URLQueryItem(name: "format", value: "json"),
-            URLQueryItem(name: "nojsoncallback", value: "1")
+            URLQueryItem(name: "nojsoncallback", value: "1"),
         ]
         guard let url = components.url else { return }
         let request = URLRequest(url: url)
@@ -97,6 +102,7 @@ extension CombineOperatorsViewController: UISearchBarDelegate {
                             .replaceError(with: nil)
                             .eraseToAnyPublisher()
                     }
+                    .compactMap { $0 }
                     .collect()
                     .eraseToAnyPublisher()
             }
@@ -117,6 +123,11 @@ extension CombineOperatorsViewController: UISearchBarDelegate {
                     self?.updateUI()
                 }
             ).store(in: &cancellables)
+    }
+    
+    private func setUIToLoading() {
+        isBusy = true
+        spinner.startAnimating()
     }
     
     private func updateUI() {

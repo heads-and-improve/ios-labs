@@ -45,37 +45,32 @@ extension MainMenuViewController {
         guard indexPath.row != 0 else { return }
         guard let storyboardName = lessons[indexPath.row].storyboardName else { return }
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        guard let identifier = lessons[indexPath.row].viewControllerName else { return }
 
-        let identifier: String
         switch indexPath.row {
         case 1:
-            identifier = "SwipeActionsViewController"
-            guard let viewController = storyboard
-                    .instantiateViewController(identifier: identifier) as? SwipeActionsViewController
-            else { return }
+            guard let viewController = storyboard.instantiateViewController(identifier: identifier) as? SwipeActionsViewController else { return }
             navigationController?.pushViewController(viewController, animated: true)
-            
+
         case 2:
-            identifier = "ContextMenuViewController"
-            guard let viewController = storyboard
-                    .instantiateViewController(identifier: identifier) as? ContextMenuViewController
-            else { return }
+            guard let viewController = storyboard.instantiateViewController(identifier: identifier) as? ContextMenuViewController else { return }
             navigationController?.pushViewController(viewController, animated: true)
-        
+
         case 3:
-            identifier = "GeneratePublishersViewController"
-            guard let viewController = storyboard
-                    .instantiateViewController(identifier: identifier) as? GeneratePublishersViewController
-            else { return }
+            guard let viewController = storyboard.instantiateViewController(identifier: identifier) as? GeneratePublishersViewController else { return }
             navigationController?.pushViewController(viewController, animated: true)
+
         case 4:
-            identifier = "CombineOperatorsViewController"
-            guard let viewController = storyboard
-                    .instantiateViewController(identifier: identifier) as? CombineOperatorsViewController
-            else { return }
+            guard let viewController = storyboard.instantiateViewController(identifier: identifier) as? CombineOperatorsViewController else { return }
             navigationController?.pushViewController(viewController, animated: true)
+
+        case 5:
+            guard let viewController = storyboard.instantiateViewController(identifier: identifier) as? CombineErrorsViewController else { return }
+            navigationController?.pushViewController(viewController, animated: true)
+
         default:
             break
+
         }
     }
 

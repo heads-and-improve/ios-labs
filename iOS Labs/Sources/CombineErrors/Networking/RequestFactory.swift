@@ -19,7 +19,7 @@ struct RequestFactory<Value> {
     private let transformRequest: TransformRequest
     private let transformPath: TransformPath
 
-    init(endpointStr: String, apiKey: String? = nil, make: @escaping MakePath) {
+    init(_ endpointStr: String, apiKey: String? = nil, make: @escaping MakePath) {
         self.endpointStr = endpointStr
         self.apiKey = apiKey
         self.make = make

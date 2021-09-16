@@ -9,6 +9,8 @@ import Foundation
 import Combine
 
 struct GetPhotosIdsUseCase: Networkable {
+    
+    typealias Photo = FlickrResponse.Photos.Photo
 
     private let factory: RequestFactory<String>
 
@@ -19,7 +21,7 @@ struct GetPhotosIdsUseCase: Networkable {
             .flatMap { $0 as? Dictionary<String, String> }
             .flatMap { $0["apiKey"] }
 
-        self.factory = .init(endpointStr: "https://www.flickr.com/services/rest/", apiKey: apiKey) { apiKey, value in
+        self.factory = .init("https://www.flickr.com/services/rest/", apiKey: apiKey) { apiKey, value in
             guard let apiKey = apiKey else { return nil }
             return "?method=flickr.photos.search"
                 + "&api_key=\(apiKey)"
@@ -31,15 +33,17 @@ struct GetPhotosIdsUseCase: Networkable {
         }
     }
 
-    func callAsFunction(_ tag: String) -> AnyPublisher<[FlickrResponse.Photos.Photo], Error> {
-        factory(tag)
-            .flatMap {
-                self.load($0)
-                    .map { (response: FlickrResponse) in response.photos.photo }
-                    .eraseToAnyPublisher()
-            }
-            ?? Fail(error: NetworkableError.other("Could not make URLRequest"))
-            .eraseToAnyPublisher()
+    func callAsFunction(_ tag: String) -> AnyPublisher<[Photo], Error> {
+        if let request = factory(tag) {
+            return self.load(request)
+                .map { (response: FlickrResponse) in response.photos.photo }
+                .eraseToAnyPublisher()
+        } else {
+            return Fail<[Photo], URLError>(error: URLError(.badURL, userInfo: [:]))
+//                .mapError { $0 as Error }
+                .mapError { NetworkableError.url($0) }
+                .eraseToAnyPublisher()
+        }
     }
     
 }

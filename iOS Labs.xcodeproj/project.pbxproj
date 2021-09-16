@@ -32,7 +32,7 @@
 		5A6B8B1E26F10C9A0097DA62 /* GetPhotosIdsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8B1D26F10C9A0097DA62 /* GetPhotosIdsUseCase.swift */; };
 		5A6B8B2026F118BA0097DA62 /* GetPhotoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8B1F26F118BA0097DA62 /* GetPhotoUseCase.swift */; };
 		5A6B8B2226F11C320097DA62 /* GetPhotosUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8B2126F11C320097DA62 /* GetPhotosUseCase.swift */; };
-		5A6B8B2426F1252B0097DA62 /* FlickrNetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8B2326F1252B0097DA62 /* FlickrNetworkingClient.swift */; };
+		5A6B8B2426F1252B0097DA62 /* CombineErrorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8B2326F1252B0097DA62 /* CombineErrorsViewModel.swift */; };
 		5A8B1B8226BEFA9000A863D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8126BEFA9000A863D7 /* AppDelegate.swift */; };
 		5A8B1B8426BEFA9000A863D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8326BEFA9000A863D7 /* SceneDelegate.swift */; };
 		5A8B1B8926BEFA9000A863D7 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8726BEFA9000A863D7 /* MainMenu.storyboard */; };
@@ -68,7 +68,7 @@
 		5A6B8B1D26F10C9A0097DA62 /* GetPhotosIdsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhotosIdsUseCase.swift; sourceTree = "<group>"; };
 		5A6B8B1F26F118BA0097DA62 /* GetPhotoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhotoUseCase.swift; sourceTree = "<group>"; };
 		5A6B8B2126F11C320097DA62 /* GetPhotosUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhotosUseCase.swift; sourceTree = "<group>"; };
-		5A6B8B2326F1252B0097DA62 /* FlickrNetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrNetworkingClient.swift; sourceTree = "<group>"; };
+		5A6B8B2326F1252B0097DA62 /* CombineErrorsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineErrorsViewModel.swift; sourceTree = "<group>"; };
 		5A8B1B7E26BEFA9000A863D7 /* iOS Labs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Labs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A8B1B8126BEFA9000A863D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A8B1B8326BEFA9000A863D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,7 +160,6 @@
 		5A6B8A0126E8EE8B0097DA62 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				5A6B8B2326F1252B0097DA62 /* FlickrNetworkingClient.swift */,
 				5A6B8B2126F11C320097DA62 /* GetPhotosUseCase.swift */,
 				5A6B8B1D26F10C9A0097DA62 /* GetPhotosIdsUseCase.swift */,
 				5A6B8B1F26F118BA0097DA62 /* GetPhotoUseCase.swift */,
@@ -173,6 +172,7 @@
 		5A6B8A0426E905150097DA62 /* CombineErrors */ = {
 			isa = PBXGroup;
 			children = (
+				5A6B8B2326F1252B0097DA62 /* CombineErrorsViewModel.swift */,
 				5A6B8B1926F107B30097DA62 /* CombineErrorsViewController.swift */,
 				5A6B8B1B26F107C70097DA62 /* CombineErrors.storyboard */,
 				5A6B8A0126E8EE8B0097DA62 /* Networking */,
@@ -302,7 +302,7 @@
 				5A6B8B1A26F107B30097DA62 /* CombineErrorsViewController.swift in Sources */,
 				5A244CDB26BEFC4F00F805B7 /* MainMenuViewController.swift in Sources */,
 				5A6B8A0026E8EE6D0097DA62 /* Networkable.swift in Sources */,
-				5A6B8B2426F1252B0097DA62 /* FlickrNetworkingClient.swift in Sources */,
+				5A6B8B2426F1252B0097DA62 /* CombineErrorsViewModel.swift in Sources */,
 				5A6B89FE26E8D9030097DA62 /* RequestFactory.swift in Sources */,
 				5A6B8B1E26F10C9A0097DA62 /* GetPhotosIdsUseCase.swift in Sources */,
 				5A244CE326C00A8D00F805B7 /* MainMenuCellContentConfiguration.swift in Sources */,

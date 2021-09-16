@@ -19,34 +19,32 @@ final class CombineErrorsViewController: UIViewController {
         return controller
     }()
 
-    private let networkingClient = FlickrNetworkingClient()
+    private let viewModel = CombineErrorsViewModel()
 
     private var images: [UIImage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.searchController = searchController
-        subscribeOnNetworkingClient()
+        subscribeToViewModel()
     }
     
-    private func subscribeOnNetworkingClient() {
-        networkingClient.onStart = { [weak self] in
-            self?.setUI(toBusy: true)
+    private func subscribeToViewModel() {
+        viewModel.onStart = { [weak self] busy in
+            self?.setUI(toBusy: busy)
         }
-        networkingClient.onSuccess = { [weak self] images in
+        viewModel.onSuccess = { [weak self] images in
             self?.images = images
-            self?.setUI(toBusy: false)
             self?.tableView.reloadData()
         }
-        networkingClient.onError = { [weak self] message in
-            self?.setUI(toBusy: false)
+        viewModel.onError = { [weak self] message in
             self?.showAlert(message)
         }
     }
 
     private func showAlert(_ message: String) {
         let controller = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ок", style: .default, handler: nil)
+        let ok = UIAlertAction(title: "Ок", style: .default)
         controller.addAction(ok)
         present(controller, animated: true, completion: nil)
     }
@@ -80,7 +78,7 @@ extension CombineErrorsViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.isEmpty else { return }
-        networkingClient(text)
+        viewModel.load(text)
     }
 }
 

@@ -8,14 +8,14 @@
 import UIKit
 import Combine
 
-final class FlickrNetworkingClient {
+final class CombineErrorsViewModel {
 
     private let tagEvent = PassthroughSubject<String, Error>()
     private var cancellables = Set<AnyCancellable>()
 
     private var isBusy = false
 
-    var onStart: (() -> Void)?
+    var onStart: ((Bool) -> Void)?
     var onSuccess: (([UIImage]) -> Void)?
     var onError: ((String) -> Void)?
 
@@ -25,27 +25,44 @@ final class FlickrNetworkingClient {
         tagEvent
             .filter { [weak self] _ in !(self?.isBusy ?? true) }
             .do { [weak self] _ in self?.isBusy = true }
-            .do { [weak self] _ in self?.onStart?() }
+            .do { [weak self] _ in self?.onStart?(true) }
             .flatMap { getPhotos($0) }
             .receive(on: RunLoop.main)
             .do { [weak self] _ in self?.isBusy = false }
+            .do { [weak self] _ in self?.onStart?(false) }
             .sink(
                 receiveCompletion: { [weak self] completion in
                     switch completion {
                     case .finished:
                         break
                     case .failure(let error):
-                        self?.onError?("Произошла ошибка!")
+                        self?.onError?(error.localizedDescription)
                     }
                 },
-                receiveValue: { [weak self] images in
-                    self?.onSuccess?(images)
+                receiveValue: { [weak self] result in
+
+                    switch result {
+                    case .success(let images):
+                        self?.onSuccess?(images)
+
+                    case .failure(let nwError):
+                        switch nwError {
+                        case .url(let urlError):
+                            self?.onError?(urlError.localizedDescription)
+                        case .some(let description):
+                            self?.onError?(description)
+                        }
+
+                    }
                 }
-            )
-            .store(in: &cancellables)
+            ).store(in: &cancellables)
     }
     
-    func callAsFunction(_ tag: String) {
+}
+ 
+extension CombineErrorsViewModel {
+
+    func load(_ tag: String) {
         tagEvent.send(tag)
     }
 

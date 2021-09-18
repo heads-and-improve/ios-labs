@@ -30,12 +30,25 @@ struct GetPhotosUseCase {
 //                    .setFailureType(to: Error.self)
 //                    .eraseToAnyPublisher()
 //            }
-//            .catch { error -> AnyPublisher<Result, Error> in
-//                return Just<Result>(.failure(error as! NetworkableError))
+            .catch { error -> AnyPublisher<Result, Error> in
+                if let nwError = error as? NetworkableError {
+                    return Just<Result>.init(.failure(nwError))
+                        .setFailureType(to: Error.self)
+                        .eraseToAnyPublisher()
+                } else {
+//                    return Just<Result>.init(.failure(nwError))
+//                        .setFailureType(to: Error.self)
+//                        .eraseToAnyPublisher()
+                    return Just<Result>.init(.success([]))
+                        .setFailureType(to: Error.self)
+                        .eraseToAnyPublisher()
+                }
+//                return Just<Result>(.failure(NetworkableError.some("Unknown error!")))
 //                    .setFailureType(to: Error.self)
 //                    .eraseToAnyPublisher()
-//            }
+            }
 //            .replaceError(with: .success([]))
+//            .setFailureType(to: Error.self)
 //            .retry(2)
             .eraseToAnyPublisher()
     }

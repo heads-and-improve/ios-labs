@@ -50,11 +50,12 @@ final class CombineErrorsViewController: UIViewController {
     }
     
     private func setUI(toBusy busy: Bool) {
-        if busy {
-            spinner.startAnimating()
-        } else {
-            spinner.stopAnimating()
-        }
+        busy ? spinner.startAnimating() : spinner.stopAnimating()
+//        if busy {
+//            spinner.startAnimating()
+//        } else {
+//            spinner.stopAnimating()
+//        }
     }
 
 }

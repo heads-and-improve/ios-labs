@@ -30,6 +30,7 @@ extension Networkable {
             .mapError { NetworkableError.url($0) }
             .map { data, _ in data }
             .decode(type: T.self, decoder: JSONDecoder())
+//            .mapError { NetworkableError.some($0.localizedDescription) }
             .eraseToAnyPublisher()
     }
 

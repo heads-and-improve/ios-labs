@@ -27,18 +27,20 @@ final class CombineErrorsViewModel {
             .do { [weak self] _ in self?.isBusy = true }
             .do { [weak self] _ in self?.onStart?(true) }
             .flatMap { getPhotos($0) }
-            .receive(on: DispatchQueue.main)
+            .receive(on: RunLoop.main)
             .sink(
                 receiveCompletion: { [weak self] completion in
                     self?.isBusy = false
                     self?.onStart?(false)
-
-                    switch completion {
-                    case .finished:
-                        break
-                    case .failure(let error):
+                    
+                    if case let .failure(error) = completion {
                         self?.onError?(error.localizedDescription)
                     }
+//                    switch completion {
+//                    case .finished:
+//                        break
+//                    case .failure(let error):
+//                    }
                 },
                 receiveValue: { [weak self] result in
                     self?.isBusy = false

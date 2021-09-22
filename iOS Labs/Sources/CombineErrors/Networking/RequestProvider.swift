@@ -18,15 +18,15 @@ enum NetworkingError: Error {
 
 }
 
-struct RequestProvider {
+struct RequestProvider<R: RequestComposable> {
     
-    private static let token: () -> String? = {
-        UserDefaults.standard.string(forKey: "kToken")
+    private static var token: () -> String? {
+        { UserDefaults.standard.string(forKey: "kToken") }
     }
     
     init() { }
     
-    private func task(_ target: RequestComposable) -> AnyPublisher<Data, Error> {
+    private func task(_ target: R) -> AnyPublisher<Data, Error> {
         var components = URLComponents()
         components.scheme = target.scheme
         components.host = target.host
@@ -39,6 +39,7 @@ struct RequestProvider {
         let request = components.url
             .flatMap { url -> URLRequest? in
                 var request = URLRequest(url: url)
+                request.httpMethod = target.method.rawValue
                 if let token = Self.token() {
                     request.addValue("Authorization", forHTTPHeaderField: token)
                 }
@@ -66,7 +67,7 @@ struct RequestProvider {
             .eraseToAnyPublisher()
     }
     
-    func task<T: Decodable>(_ target: RequestComposable) -> AnyPublisher<T, Error> {
+    func task<T: Decodable>(_ target: R) -> AnyPublisher<T, Error> {
         task(target)
             .map { (data: Data) -> Data in data }
             .tryMap { data in
@@ -79,7 +80,7 @@ struct RequestProvider {
             .eraseToAnyPublisher()
     }
     
-    func task(_ target: RequestComposable) -> AnyPublisher<UIImage, Error> {
+    func task(_ target: R) -> AnyPublisher<UIImage, Error> {
         task(target)
             .map { data in UIImage(data: data) }
             .compactMap { $0 }

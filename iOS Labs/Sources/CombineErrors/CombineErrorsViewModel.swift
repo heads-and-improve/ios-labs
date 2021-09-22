@@ -36,11 +36,6 @@ final class CombineErrorsViewModel {
                     if case let .failure(error) = completion {
                         self?.onError?(error.localizedDescription)
                     }
-//                    switch completion {
-//                    case .finished:
-//                        break
-//                    case .failure(let error):
-//                    }
                 },
                 receiveValue: { [weak self] result in
                     self?.isBusy = false
@@ -51,12 +46,7 @@ final class CombineErrorsViewModel {
                         self?.onSuccess?(images)
 
                     case .failure(let nwError):
-                        switch nwError {
-                        case .url(let urlError):
-                            self?.onError?(urlError.localizedDescription)
-                        case .some(let description):
-                            self?.onError?(description)
-                        }
+                        break
 
                     }
                 }

@@ -14,6 +14,7 @@ enum RequestMethod: String {
     case set = "SET"
     case put = "PUT"
     case delete = "DELETE"
+
 }
 
 protocol RequestComposable {

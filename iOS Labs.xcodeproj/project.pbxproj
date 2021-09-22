@@ -38,6 +38,8 @@
 		5A8B1B8926BEFA9000A863D7 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8726BEFA9000A863D7 /* MainMenu.storyboard */; };
 		5A8B1B8B26BEFA9200A863D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8A26BEFA9200A863D7 /* Assets.xcassets */; };
 		5A8B1B8E26BEFA9200A863D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8C26BEFA9200A863D7 /* LaunchScreen.storyboard */; };
+		5ACE53BE26FA49BD00777619 /* RequestComposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE53BD26FA49BD00777619 /* RequestComposable.swift */; };
+		5ACE53C126FA6DCB00777619 /* RequestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE53C026FA6DCB00777619 /* RequestProvider.swift */; };
 		5AEEA80626CC480B00504685 /* SwipeActions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AEEA80526CC480B00504685 /* SwipeActions.storyboard */; };
 		5AEEA80826CC484100504685 /* SwipeActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEEA80726CC484100504685 /* SwipeActionsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,8 @@
 		5A8B1B8A26BEFA9200A863D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A8B1B8D26BEFA9200A863D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A8B1B8F26BEFA9200A863D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5ACE53BD26FA49BD00777619 /* RequestComposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestComposable.swift; sourceTree = "<group>"; };
+		5ACE53C026FA6DCB00777619 /* RequestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProvider.swift; sourceTree = "<group>"; };
 		5AEEA80526CC480B00504685 /* SwipeActions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SwipeActions.storyboard; sourceTree = "<group>"; };
 		5AEEA80726CC484100504685 /* SwipeActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +114,7 @@
 				5A69B48A26DD2491005B5FFF /* GeneratePublishers */,
 				5A6B89F726E7F7480097DA62 /* CombineOperators */,
 				5A6B8A0426E905150097DA62 /* CombineErrors */,
+				5ACE53BF26FA49CA00777619 /* Networking */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -211,6 +216,15 @@
 			path = "iOS Labs";
 			sourceTree = "<group>";
 		};
+		5ACE53BF26FA49CA00777619 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5ACE53C026FA6DCB00777619 /* RequestProvider.swift */,
+				5ACE53BD26FA49BD00777619 /* RequestComposable.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		5AEEA80426CC470800504685 /* SwipeActions */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ACE53BE26FA49BD00777619 /* RequestComposable.swift in Sources */,
 				5A6B89F926E7F7620097DA62 /* CombineOperatorsViewController.swift in Sources */,
 				5A2DB7A026D6C983000EDC46 /* ContextMenuDetailsViewController.swift in Sources */,
 				5A6B8B1A26F107B30097DA62 /* CombineErrorsViewController.swift in Sources */,
@@ -312,6 +327,7 @@
 				5A2DB79A26D642EE000EDC46 /* ContextMenuViewController.swift in Sources */,
 				5AEEA80826CC484100504685 /* SwipeActionsViewController.swift in Sources */,
 				5A6B8A0826E9425A0097DA62 /* FlickrResponse.swift in Sources */,
+				5ACE53C126FA6DCB00777619 /* RequestProvider.swift in Sources */,
 				5A8B1B8426BEFA9000A863D7 /* SceneDelegate.swift in Sources */,
 				5A244CE526C00AE500F805B7 /* MainMenuContentView.swift in Sources */,
 				5A244CDF26BF033C00F805B7 /* Lesson.swift in Sources */,

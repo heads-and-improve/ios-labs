@@ -31,8 +31,8 @@ struct RequestProvider {
         components.scheme = target.scheme
         components.host = target.host
         components.path = target.path
-        if let query = target.query {
-            components.queryItems = query.map { key, value in
+        if !target.query.isEmpty {
+            components.queryItems = target.query.map { key, value in
                 URLQueryItem(name: key, value: value)
             }
         }

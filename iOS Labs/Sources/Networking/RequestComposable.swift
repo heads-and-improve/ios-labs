@@ -18,13 +18,13 @@ enum RequestMethod: String {
 
 protocol RequestComposable {
     
-    var scheme: String { get }
+    var scheme: String? { get }
 
-    var host: String { get }
+    var host: String? { get }
     
     var path: String { get }
     
-    var query: [String: String?]? { get }
+    var query: [String: String?] { get }
     
     var method: RequestMethod { get }
     
@@ -34,9 +34,11 @@ protocol RequestComposable {
 
 extension RequestComposable {
     
-    var scheme: String { "https" }
+    var scheme: String? { nil }
     
-    var query: [String: String]? { nil }
+    var host: String? { nil }
+    
+    var query: [String: String] { [:] }
     
     var data: Data? { nil }
     

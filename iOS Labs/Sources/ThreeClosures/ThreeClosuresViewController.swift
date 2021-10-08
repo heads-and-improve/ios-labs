@@ -6,19 +6,22 @@
 //
 
 import UIKit
+import Combine
 
 final class ThreeClosuresViewController: UIViewController {
     
     private enum CityName: String {
 
         case novosib = "Новосибирск"
-        case saransk =  "Саранск"
+        case saransk = "Саранск"
         case piter = "Санкт-Петербург"
 
     }
 
     @IBOutlet private weak var tempLabel: UILabel!
     @IBOutlet private weak var refreshButton: ThreeClosuresRefreshButton!
+    
+    private var cancellable: AnyCancellable!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +48,12 @@ final class ThreeClosuresViewController: UIViewController {
     
     @objc
     private func handleTapped() {
-        // TODO: Code fetching function
-        tempLabel.text = refreshButton.city
+        cancellable = ThreeClosuresEnvironment.current(.dev).fetchTemp(refreshButton.city)
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { [weak self] temp in
+                    self?.tempLabel.text = "\(temp) C"
+                }
+            )
     }
 }

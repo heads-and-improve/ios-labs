@@ -10,32 +10,29 @@ import Combine
 
 final class ThreeClosuresEnvironment {
 
-    enum State {
-        
-        case dev
-        case qa
-        case prod
-        
-    }
-    
-    typealias FetchWeather = () -> AnyPublisher<Int, Error>
+    enum State { case dev, qa, prod }
 
-    let fetchWeather: FetchWeather
-    let setupFetchWeather: (String) -> FetchWeather
+    typealias TempPublisher = AnyPublisher<Int, Error>
 
-    private init(fetchWeather: @escaping FetchWeather, setupFetchWeather: @escaping (String) -> FetchWeather) {
-        self.fetchWeather = fetchWeather
-        self.setupFetchWeather = setupFetchWeather
+    let fetchTemp: (String?) -> TempPublisher
+    let setupFetchTemp: (String?) -> (() -> TempPublisher)
+
+    private init(
+        fetchTemp: @escaping (String?) -> TempPublisher,
+        setupFetchTemp: @escaping (String?) -> (() -> TempPublisher)
+    ) {
+        self.fetchTemp = fetchTemp
+        self.setupFetchTemp = setupFetchTemp
     }
     
     static func current(_ env: State) -> ThreeClosuresEnvironment {
         return ThreeClosuresEnvironment(
-            fetchWeather: {
+            fetchTemp: { city in
                 Just(25)
                     .setFailureType(to: Error.self)
                     .eraseToAnyPublisher()
             },
-            setupFetchWeather: { city in
+            setupFetchTemp: { city in
                 {
                     Just(25)
                         .setFailureType(to: Error.self)

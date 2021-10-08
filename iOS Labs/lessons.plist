@@ -58,5 +58,15 @@
 		<key>viewControllerName</key>
 		<string>CombineErrorsViewController</string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>Closures</string>
+		<key>description</key>
+		<string>Рассказываю о применении замыканий на трех различных примерах, в том числе нетривиальных.</string>
+		<key>storyboardName</key>
+		<string>ThreeClosures</string>
+		<key>viewControllerName</key>
+		<string>ThreeClosuresViewController</string>
+	</dict>
 </array>
 </plist>

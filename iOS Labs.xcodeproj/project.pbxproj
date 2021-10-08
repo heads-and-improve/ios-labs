@@ -17,12 +17,16 @@
 		5A2DB79C26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DB79B26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift */; };
 		5A2DB79E26D6C15E000EDC46 /* Sightseeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DB79D26D6C15E000EDC46 /* Sightseeing.swift */; };
 		5A2DB7A026D6C983000EDC46 /* ContextMenuDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DB79F26D6C983000EDC46 /* ContextMenuDetailsViewController.swift */; };
+		5A539E6427102B3200D8A00C /* ThreeClosuresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A539E6327102B3200D8A00C /* ThreeClosuresViewController.swift */; };
+		5A539E6727102B5E00D8A00C /* ThreeClosures.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A539E6627102B5E00D8A00C /* ThreeClosures.storyboard */; };
+		5A539E6927102EA100D8A00C /* ThreeClosuresRefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A539E6827102EA100D8A00C /* ThreeClosuresRefreshButton.swift */; };
+		5A539E6B271033F800D8A00C /* ThreeClosuresEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A539E6A271033F800D8A00C /* ThreeClosuresEnvironment.swift */; };
 		5A69B48C26DD2662005B5FFF /* GeneratePublishers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A69B48B26DD2662005B5FFF /* GeneratePublishers.storyboard */; };
 		5A69B48E26DD2676005B5FFF /* GeneratePublishersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A69B48D26DD2676005B5FFF /* GeneratePublishersViewController.swift */; };
 		5A69B49026DE2861005B5FFF /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A69B48F26DE2860005B5FFF /* Input.swift */; };
 		5A6B89F626E7F7370097DA62 /* CombineOperators.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A6B89F526E7F7370097DA62 /* CombineOperators.storyboard */; };
 		5A6B89F926E7F7620097DA62 /* CombineOperatorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B89F826E7F7620097DA62 /* CombineOperatorsViewController.swift */; };
-		5A6B89FB26E817990097DA62 /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6B89FA26E817990097DA62 /* secrets.plist */; };
+		5A6B89FB26E817990097DA62 /* apikeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A6B89FA26E817990097DA62 /* apikeys.plist */; };
 		5A6B8A0626E93F4C0097DA62 /* FlickrPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8A0526E93F4C0097DA62 /* FlickrPhotoCell.swift */; };
 		5A6B8A0826E9425A0097DA62 /* FlickrResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8A0726E9425A0097DA62 /* FlickrResponse.swift */; };
 		5A6B8B1A26F107B30097DA62 /* CombineErrorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B8B1926F107B30097DA62 /* CombineErrorsViewController.swift */; };
@@ -55,12 +59,16 @@
 		5A2DB79B26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuPreviewViewController.swift; sourceTree = "<group>"; };
 		5A2DB79D26D6C15E000EDC46 /* Sightseeing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sightseeing.swift; sourceTree = "<group>"; };
 		5A2DB79F26D6C983000EDC46 /* ContextMenuDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDetailsViewController.swift; sourceTree = "<group>"; };
+		5A539E6327102B3200D8A00C /* ThreeClosuresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeClosuresViewController.swift; sourceTree = "<group>"; };
+		5A539E6627102B5E00D8A00C /* ThreeClosures.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThreeClosures.storyboard; sourceTree = "<group>"; };
+		5A539E6827102EA100D8A00C /* ThreeClosuresRefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeClosuresRefreshButton.swift; sourceTree = "<group>"; };
+		5A539E6A271033F800D8A00C /* ThreeClosuresEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeClosuresEnvironment.swift; sourceTree = "<group>"; };
 		5A69B48B26DD2662005B5FFF /* GeneratePublishers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GeneratePublishers.storyboard; sourceTree = "<group>"; };
 		5A69B48D26DD2676005B5FFF /* GeneratePublishersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePublishersViewController.swift; sourceTree = "<group>"; };
 		5A69B48F26DE2860005B5FFF /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		5A6B89F526E7F7370097DA62 /* CombineOperators.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CombineOperators.storyboard; sourceTree = "<group>"; };
 		5A6B89F826E7F7620097DA62 /* CombineOperatorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineOperatorsViewController.swift; sourceTree = "<group>"; };
-		5A6B89FA26E817990097DA62 /* secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = secrets.plist; sourceTree = "<group>"; };
+		5A6B89FA26E817990097DA62 /* apikeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apikeys.plist; sourceTree = "<group>"; };
 		5A6B8A0526E93F4C0097DA62 /* FlickrPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotoCell.swift; sourceTree = "<group>"; };
 		5A6B8A0726E9425A0097DA62 /* FlickrResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrResponse.swift; sourceTree = "<group>"; };
 		5A6B8B1926F107B30097DA62 /* CombineErrorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineErrorsViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +122,7 @@
 				5A69B48A26DD2491005B5FFF /* GeneratePublishers */,
 				5A6B89F726E7F7480097DA62 /* CombineOperators */,
 				5A6B8A0426E905150097DA62 /* CombineErrors */,
-				5ACE53BF26FA49CA00777619 /* Networking */,
+				5A539E6527102B3900D8A00C /* ThreeClosures */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -140,6 +148,17 @@
 			path = ContextMenu;
 			sourceTree = "<group>";
 		};
+		5A539E6527102B3900D8A00C /* ThreeClosures */ = {
+			isa = PBXGroup;
+			children = (
+				5A539E6A271033F800D8A00C /* ThreeClosuresEnvironment.swift */,
+				5A539E6327102B3200D8A00C /* ThreeClosuresViewController.swift */,
+				5A539E6627102B5E00D8A00C /* ThreeClosures.storyboard */,
+				5A539E6827102EA100D8A00C /* ThreeClosuresRefreshButton.swift */,
+			);
+			path = ThreeClosures;
+			sourceTree = "<group>";
+		};
 		5A69B48A26DD2491005B5FFF /* GeneratePublishers */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +172,7 @@
 		5A6B89F726E7F7480097DA62 /* CombineOperators */ = {
 			isa = PBXGroup;
 			children = (
-				5A6B89FA26E817990097DA62 /* secrets.plist */,
+				5A6B89FA26E817990097DA62 /* apikeys.plist */,
 				5A6B8A0726E9425A0097DA62 /* FlickrResponse.swift */,
 				5A6B89F526E7F7370097DA62 /* CombineOperators.storyboard */,
 				5A6B89F826E7F7620097DA62 /* CombineOperatorsViewController.swift */,
@@ -216,13 +235,6 @@
 				5A8B1B8F26BEFA9200A863D7 /* Info.plist */,
 			);
 			path = "iOS Labs";
-			sourceTree = "<group>";
-		};
-		5ACE53BF26FA49CA00777619 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		5AEEA80426CC470800504685 /* SwipeActions */ = {
@@ -292,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A8B1B8E26BEFA9200A863D7 /* LaunchScreen.storyboard in Resources */,
+				5A539E6727102B5E00D8A00C /* ThreeClosures.storyboard in Resources */,
 				5A6B8B1C26F107C70097DA62 /* CombineErrors.storyboard in Resources */,
 				5AEEA80626CC480B00504685 /* SwipeActions.storyboard in Resources */,
 				5A8B1B8B26BEFA9200A863D7 /* Assets.xcassets in Resources */,
@@ -300,7 +313,7 @@
 				5A8B1B8926BEFA9000A863D7 /* MainMenu.storyboard in Resources */,
 				5A6B89F626E7F7370097DA62 /* CombineOperators.storyboard in Resources */,
 				5A2DB79826D6428E000EDC46 /* ContextMenu.storyboard in Resources */,
-				5A6B89FB26E817990097DA62 /* secrets.plist in Resources */,
+				5A6B89FB26E817990097DA62 /* apikeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +337,9 @@
 				5A8B1B8226BEFA9000A863D7 /* AppDelegate.swift in Sources */,
 				5A6B8A0626E93F4C0097DA62 /* FlickrPhotoCell.swift in Sources */,
 				5A69B48E26DD2676005B5FFF /* GeneratePublishersViewController.swift in Sources */,
+				5A539E6427102B3200D8A00C /* ThreeClosuresViewController.swift in Sources */,
 				5A2DB79A26D642EE000EDC46 /* ContextMenuViewController.swift in Sources */,
+				5A539E6927102EA100D8A00C /* ThreeClosuresRefreshButton.swift in Sources */,
 				5AEEA80826CC484100504685 /* SwipeActionsViewController.swift in Sources */,
 				5A6B8A0826E9425A0097DA62 /* FlickrResponse.swift in Sources */,
 				5ACE53C126FA6DCB00777619 /* RequestProvider.swift in Sources */,
@@ -335,6 +350,7 @@
 				5A6B8B2026F118BA0097DA62 /* GetPhotoUseCase.swift in Sources */,
 				5A2DB79E26D6C15E000EDC46 /* Sightseeing.swift in Sources */,
 				5A69B49026DE2861005B5FFF /* Input.swift in Sources */,
+				5A539E6B271033F800D8A00C /* ThreeClosuresEnvironment.swift in Sources */,
 				5A2DB79C26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

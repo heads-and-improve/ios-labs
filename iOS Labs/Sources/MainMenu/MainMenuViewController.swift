@@ -67,6 +67,10 @@ extension MainMenuViewController {
         case 5:
             guard let viewController = storyboard.instantiateViewController(identifier: identifier) as? CombineErrorsViewController else { return }
             navigationController?.pushViewController(viewController, animated: true)
+        
+        case 6:
+            guard let viewController = storyboard.instantiateViewController(identifier: identifier) as? ThreeClosuresViewController else { return }
+            navigationController?.pushViewController(viewController, animated: true)
 
         default:
             break

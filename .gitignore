@@ -93,4 +93,4 @@ iOSInjectionProject/
 #
 # Here are listed files containing personal or secure information
 
-CombineOperators/secrets.plist
+iOS_Labs/Sources/CombineOperators/secrets.plist

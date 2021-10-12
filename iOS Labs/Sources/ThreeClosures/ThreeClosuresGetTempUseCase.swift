@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-//struct GetTempUseCase {
+//struct ThreeClosuresGetTempUseCase {
 //
 //    func callAsFunction(coords: CityCoordinates) -> AnyPublisher<Int?, Never> {
 //
@@ -49,7 +49,7 @@ import Foundation
 //    }
 //}
 
-struct GetTempUseCase {
+struct ThreeClosuresGetTempUseCase {
     
     private let fetch: (CityCoordinates) -> AnyPublisher<Int?, Never>
     
@@ -101,10 +101,10 @@ struct GetTempUseCase {
     }
 }
 
-extension GetTempUseCase {
+extension ThreeClosuresGetTempUseCase {
     
-    static var trulyHot: GetTempUseCase {
-        GetTempUseCase { _ in
+    static var trulyHot: ThreeClosuresGetTempUseCase {
+        ThreeClosuresGetTempUseCase { _ in
             Future<Int?, Never> { promise in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     promise(.success(35))

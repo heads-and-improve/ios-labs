@@ -16,9 +16,9 @@ struct ThreeClosuresNetworkingEnvironment {
         case prod
     }
 
-    let getTemp: GetTempUseCase
+    let getTemp: ThreeClosuresGetTempUseCase
 
-    private init(getTemp: GetTempUseCase) {
+    private init(getTemp: ThreeClosuresGetTempUseCase) {
         self.getTemp = getTemp
     }
 

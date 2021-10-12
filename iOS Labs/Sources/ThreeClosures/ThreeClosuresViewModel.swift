@@ -11,40 +11,47 @@ import UIKit
 final class ThreeClosuresViewModel {
     
     private let setCityEvent = PassthroughSubject<String, Error>()
-    private let updateTempEvent = PassthroughSubject<CityCoordinates, Error>()
+    private let updateTempEvent = PassthroughSubject<String, Error>()
     private var cancellables = Set<AnyCancellable>()
     
-    var onUpdateCity: ((CityCoordinates) -> Void)?
-    var onUpdateTemp: ((Int) -> Void)?
+    var onUpdateCity: ((String) -> Void)?
+    var onUpdateTemp: ((String) -> Void)?
     
     init() {
         setCityEvent
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { [weak self] cityName in
-                    let coords: CityCoordinates
-                    switch cityName {
-                    case "Новосиб": coords = .init(55.00, 83.00)
-                    case "Саранск": coords = .init(54.00, 45.00)
-                    case "Питер": coords = .init(60.00, 30.00)
-                    default: fatalError("Unknown city")
-                    }
-                    self?.onUpdateCity?(coords)
+                    self?.onUpdateCity?(cityName)
                 }
             )
             .store(in: &cancellables)
         
         
-        let getTemp = ThreeClosuresNetworkingEnvironment.current(.dev).getTemp
+        let getTemp = ThreeClosuresNetworkingEnvironment.current(.qa).getTemp
         
         updateTempEvent
+            .map { cityName in
+                switch cityName {
+                case "Новосиб": return CityCoordinates(55.00, 83.00)
+                case "Саранск": return CityCoordinates(54.00, 45.00)
+                case "Питер": return CityCoordinates(60.00, 30.00)
+                default: fatalError("Unknown city")
+                }
+            }
             .flatMap { getTemp(coords: $0) }
             .receive(on: RunLoop.main)
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { [weak self] temp in
                     guard let temp = temp else { return }
-                    self?.onUpdateTemp?(temp)
+                    var tempString = "\(abs(temp)) °C"
+                    if temp > 0 {
+                        tempString = "+" + tempString
+                    } else if temp < 0 {
+                        tempString = "-" + tempString
+                    }
+                    self?.onUpdateTemp?(tempString)
                 }
             )
             .store(in: &cancellables)
@@ -54,8 +61,8 @@ final class ThreeClosuresViewModel {
         setCityEvent.send(cityName)
     }
     
-    func updateTemp(coords: CityCoordinates) {
-        updateTempEvent.send(coords)
+    func updateTemp(cityName: String) {
+        updateTempEvent.send(cityName)
     }
     
 }

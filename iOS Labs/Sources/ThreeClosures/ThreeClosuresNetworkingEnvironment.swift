@@ -25,11 +25,11 @@ struct ThreeClosuresNetworkingEnvironment {
     static func current(_ env: Target) -> ThreeClosuresNetworkingEnvironment {
         switch env {
         case .dev:
-            return ThreeClosuresNetworkingEnvironment(getTemp: GetTempUseCase())
+            return ThreeClosuresNetworkingEnvironment(getTemp: .init())
         case .qa:
-            return ThreeClosuresNetworkingEnvironment(getTemp: GetTempUseCase())
+            return ThreeClosuresNetworkingEnvironment(getTemp: .trulyHot)
         case .prod:
-            return ThreeClosuresNetworkingEnvironment(getTemp: GetTempUseCase())
+            return ThreeClosuresNetworkingEnvironment(getTemp: .init())
         }
     }
     

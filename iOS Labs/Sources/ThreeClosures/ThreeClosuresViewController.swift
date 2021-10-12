@@ -18,6 +18,10 @@ final class ThreeClosuresViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateButton.onTap = { [weak self] city in
+            guard let city = city else { fatalError("City was not set") }
+            self?.viewModel.setCity(cityName: city)
+        }
         subscrubeToViewModel()
         passCityToViewModel(segmentedControl)
     }
@@ -26,8 +30,8 @@ final class ThreeClosuresViewController: UIViewController {
         viewModel.onUpdateCity = { [weak self] coords in
             self?.updateButton.city = coords
         }
-        viewModel.onUpdateTemp = { [weak self] temp in
-            self?.tempLabel.text = "\(temp) °C"
+        viewModel.onUpdateTemp = { [weak self] tempString in
+            self?.tempLabel.text = "\(tempString)"
         }
     }
     
@@ -43,7 +47,7 @@ final class ThreeClosuresViewController: UIViewController {
 
     @IBAction func handleTapped(_ sender: ThreeClosuresUpdateButton) {
         guard let city = sender.city else { fatalError("City was not set") }
-        viewModel.updateTemp(coords: city)
+        viewModel.updateTemp(cityName: city)
     }
     
 }

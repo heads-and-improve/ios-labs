@@ -33,9 +33,9 @@ final class ThreeClosuresViewModel {
         updateTempEvent
             .map { cityName in
                 switch cityName {
-                case "Новосиб": return CityCoordinates(55.00, 83.00)
-                case "Саранск": return CityCoordinates(54.00, 45.00)
-                case "Питер": return CityCoordinates(60.00, 30.00)
+                case "Новосиб": return CityCoords(55.00, 83.00)
+                case "Саранск": return CityCoords(54.00, 45.00)
+                case "Питер": return CityCoords(60.00, 30.00)
                 default: fatalError("Unknown city")
                 }
             }

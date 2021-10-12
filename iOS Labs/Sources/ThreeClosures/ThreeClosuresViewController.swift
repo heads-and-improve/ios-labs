@@ -14,8 +14,8 @@ final class ThreeClosuresViewController: UIViewController {
     @IBOutlet private weak var tempLabel: UILabel!
     @IBOutlet private weak var updateButton: ThreeClosuresUpdateButton!
     
-//    private let viewModel = ThreeClosuresViewModel()
-    private let viewModel = ThreeClosuresViewModelOpt()
+    private let viewModel = ThreeClosuresViewModel()
+//    private let viewModel = ThreeClosuresViewModelOpt()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +51,8 @@ final class ThreeClosuresViewController: UIViewController {
     }
 
     @IBAction func handleTapped(_ sender: ThreeClosuresUpdateButton) {
-//        guard let city = sender.city else { fatalError("City was not set") }
-//        viewModel.updateTemp(cityName: city)
-        viewModel.updateTemp()
+        guard let city = sender.city else { fatalError("City was not set") }
+        viewModel.updateTemp(cityName: city)
+//        viewModel.updateTemp()
     }
 }

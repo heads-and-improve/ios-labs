@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CityCoordinates {
+struct CityCoords {
 
     let lat: Double
     let lon: Double
@@ -16,5 +16,4 @@ struct CityCoordinates {
         self.lat = lat
         self.lon = lon
     }
-
 }

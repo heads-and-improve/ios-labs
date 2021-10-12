@@ -11,29 +11,29 @@ import Combine
 final class ThreeClosuresViewModelOpt {
 
     private let setCityEvent = PassthroughSubject<String, Error>()
-    private let updateTempEvent = PassthroughSubject<() -> AnyPublisher<Int?, Never>, Error>()
+    private let updateTempEvent = PassthroughSubject<Void, Error>()
     private var cancellables = Set<AnyCancellable>()
-    
-    private var getTemp: () -> AnyPublisher<Int?, Never> = {
-        Just(nil)
-            .eraseToAnyPublisher()
-    }
 
     var onCityUpdated: ((String) -> Void)?
     var onTempUpdated: ((String) -> Void)?
 
     init() {
+
+        var getTemp: () -> AnyPublisher<Int?, Never> = {
+            Just(nil)
+                .eraseToAnyPublisher()
+        }
+
         setCityEvent
-            .do { [weak self] cityName in
-                let coords: CityCoordinates
+            .do { cityName in
+                let coords: CityCoords
                 switch cityName {
                 case "Новосиб": coords = .init(55.00, 83.00)
                 case "Саранск": coords = .init(54.00, 45.00)
                 case "Питер": coords = .init(60.00, 30.00)
                 default: fatalError("Unknown city")
                 }
-
-                self?.getTemp = ThreeClosuresLazyFetcher.getTemp(coords)
+                getTemp = ThreeClosuresLazyFetcher.getTemp(coords)
             }
             .sink(
                 receiveCompletion: { _ in },
@@ -44,7 +44,7 @@ final class ThreeClosuresViewModelOpt {
             .store(in: &cancellables)
         
         updateTempEvent
-            .flatMap { getTemp in getTemp() }
+            .flatMap { getTemp() }
             .receive(on: RunLoop.main)
             .sink(
                 receiveCompletion: { _ in },
@@ -67,7 +67,7 @@ final class ThreeClosuresViewModelOpt {
     }
     
     func updateTemp() {
-        updateTempEvent.send(getTemp)
+        updateTempEvent.send()
     }
 }
 

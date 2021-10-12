@@ -10,7 +10,7 @@ import Combine
 
 struct ThreeClosuresLazyFetcher {
     
-    static let getTemp: (CityCoordinates) -> (() -> AnyPublisher<Int?, Never>) = { coords in
+    static let getTemp: (CityCoords) -> (() -> AnyPublisher<Int?, Never>) = { coords in
         {
             let apiKey = Bundle.main.url(forResource: "apikeys", withExtension: "plist")
                 .flatMap { try? Data(contentsOf: $0) }

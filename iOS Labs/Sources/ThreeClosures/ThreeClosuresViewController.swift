@@ -9,51 +9,41 @@ import UIKit
 import Combine
 
 final class ThreeClosuresViewController: UIViewController {
-    
-    private enum CityName: String {
 
-        case novosib = "Новосибирск"
-        case saransk = "Саранск"
-        case piter = "Санкт-Петербург"
-
-    }
-
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet private weak var tempLabel: UILabel!
-    @IBOutlet private weak var refreshButton: ThreeClosuresRefreshButton!
+    @IBOutlet private weak var updateButton: ThreeClosuresUpdateButton!
     
-    private var cancellable: AnyCancellable!
+    private let viewModel = ThreeClosuresViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshButton.addTarget(self, action: #selector(handleTapped), for: .touchDown)
-//        refreshButton.onTap = { [weak self] city in
-//            // TODO: Code fetching function
-//            self?.tempLabel.text = city
-//        }
-        refreshButton.city = CityName.novosib.rawValue
+        subscrubeToViewModel()
+        passCityToViewModel(segmentedControl)
     }
 
-    @IBAction func handleSelected(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            refreshButton.city = CityName.novosib.rawValue
-        case 1:
-            refreshButton.city = CityName.saransk.rawValue
-        case 2:
-            refreshButton.city = CityName.piter.rawValue
-        default:
-            refreshButton.city = nil
+    private func subscrubeToViewModel() {
+        viewModel.onUpdateCity = { [weak self] coords in
+            self?.updateButton.city = coords
+        }
+        viewModel.onUpdateTemp = { [weak self] temp in
+            self?.tempLabel.text = "\(temp) °C"
         }
     }
     
-    @objc
-    private func handleTapped() {
-        cancellable = ThreeClosuresEnvironment.current(.dev).fetchTemp(refreshButton.city)
-            .sink(
-                receiveCompletion: { _ in },
-                receiveValue: { [weak self] temp in
-                    self?.tempLabel.text = "\(temp) C"
-                }
-            )
+    @IBAction func handleSelected(_ sender: UISegmentedControl) {
+        passCityToViewModel(sender)
     }
+
+    private func passCityToViewModel(_ sender: UISegmentedControl) {
+        let index = sender.selectedSegmentIndex
+        guard let city = sender.titleForSegment(at: index) else { fatalError("No city name for index") }
+        viewModel.setCity(cityName: city)
+    }
+
+    @IBAction func handleTapped(_ sender: ThreeClosuresUpdateButton) {
+        guard let city = sender.city else { fatalError("City was not set") }
+        viewModel.updateTemp(coords: city)
+    }
+    
 }

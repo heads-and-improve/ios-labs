@@ -32,19 +32,22 @@
                                             <action selector="handleSelected:" destination="Y6W-OH-hqX" eventType="valueChanged" id="LOS-J6-FtN"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25 С" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjA-DC-CBI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjA-DC-CBI">
                                         <rect key="frame" x="0.0" y="39" width="310.5" height="167.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="100"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG1-Lb-XfX" customClass="ThreeClosuresRefreshButton" customModule="iOS_Labs" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG1-Lb-XfX" customClass="ThreeClosuresUpdateButton" customModule="iOS_Labs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="214.5" width="310.5" height="31"/>
                                         <color key="backgroundColor" systemColor="tintColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Обновить">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="handleTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aSV-CY-Ywh"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -59,8 +62,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="refreshButton" destination="DG1-Lb-XfX" id="Ybh-kz-790"/>
+                        <outlet property="segmentedControl" destination="ajK-51-YQB" id="zve-ew-Csy"/>
                         <outlet property="tempLabel" destination="UjA-DC-CBI" id="CQc-4b-lyF"/>
+                        <outlet property="updateButton" destination="DG1-Lb-XfX" id="Ybh-kz-790"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

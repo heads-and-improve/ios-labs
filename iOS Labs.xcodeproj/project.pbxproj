@@ -19,8 +19,8 @@
 		5A2DB7A026D6C983000EDC46 /* ContextMenuDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DB79F26D6C983000EDC46 /* ContextMenuDetailsViewController.swift */; };
 		5A539E6427102B3200D8A00C /* ThreeClosuresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A539E6327102B3200D8A00C /* ThreeClosuresViewController.swift */; };
 		5A539E6727102B5E00D8A00C /* ThreeClosures.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A539E6627102B5E00D8A00C /* ThreeClosures.storyboard */; };
-		5A539E6927102EA100D8A00C /* ThreeClosuresRefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A539E6827102EA100D8A00C /* ThreeClosuresRefreshButton.swift */; };
-		5A539E6B271033F800D8A00C /* ThreeClosuresEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A539E6A271033F800D8A00C /* ThreeClosuresEnvironment.swift */; };
+		5A539E6927102EA100D8A00C /* ThreeClosuresUpdateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A539E6827102EA100D8A00C /* ThreeClosuresUpdateButton.swift */; };
+		5A539E6B271033F800D8A00C /* ThreeClosuresNetworkingEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A539E6A271033F800D8A00C /* ThreeClosuresNetworkingEnvironment.swift */; };
 		5A69B48C26DD2662005B5FFF /* GeneratePublishers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A69B48B26DD2662005B5FFF /* GeneratePublishers.storyboard */; };
 		5A69B48E26DD2676005B5FFF /* GeneratePublishersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A69B48D26DD2676005B5FFF /* GeneratePublishersViewController.swift */; };
 		5A69B49026DE2861005B5FFF /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A69B48F26DE2860005B5FFF /* Input.swift */; };
@@ -40,6 +40,10 @@
 		5A8B1B8926BEFA9000A863D7 /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8726BEFA9000A863D7 /* MainMenu.storyboard */; };
 		5A8B1B8B26BEFA9200A863D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8A26BEFA9200A863D7 /* Assets.xcassets */; };
 		5A8B1B8E26BEFA9200A863D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B1B8C26BEFA9200A863D7 /* LaunchScreen.storyboard */; };
+		5A94F09E271572CD00A5E45A /* ThreeClosuresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A94F09D271572CD00A5E45A /* ThreeClosuresViewModel.swift */; };
+		5A94F0A02715754D00A5E45A /* CityCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A94F09F2715754D00A5E45A /* CityCoordinates.swift */; };
+		5A94F0A32715889100A5E45A /* GetTempUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A94F0A22715889100A5E45A /* GetTempUseCase.swift */; };
+		5A94F0A52715AB0A00A5E45A /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A94F0A42715AB0A00A5E45A /* WeatherResponse.swift */; };
 		5ACE53BE26FA49BD00777619 /* RequestComposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE53BD26FA49BD00777619 /* RequestComposable.swift */; };
 		5ACE53C126FA6DCB00777619 /* RequestProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE53C026FA6DCB00777619 /* RequestProvider.swift */; };
 		5ACE53C326FB83D500777619 /* FlickrApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACE53C226FB83D500777619 /* FlickrApi.swift */; };
@@ -61,8 +65,8 @@
 		5A2DB79F26D6C983000EDC46 /* ContextMenuDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDetailsViewController.swift; sourceTree = "<group>"; };
 		5A539E6327102B3200D8A00C /* ThreeClosuresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeClosuresViewController.swift; sourceTree = "<group>"; };
 		5A539E6627102B5E00D8A00C /* ThreeClosures.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThreeClosures.storyboard; sourceTree = "<group>"; };
-		5A539E6827102EA100D8A00C /* ThreeClosuresRefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeClosuresRefreshButton.swift; sourceTree = "<group>"; };
-		5A539E6A271033F800D8A00C /* ThreeClosuresEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeClosuresEnvironment.swift; sourceTree = "<group>"; };
+		5A539E6827102EA100D8A00C /* ThreeClosuresUpdateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeClosuresUpdateButton.swift; sourceTree = "<group>"; };
+		5A539E6A271033F800D8A00C /* ThreeClosuresNetworkingEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeClosuresNetworkingEnvironment.swift; sourceTree = "<group>"; };
 		5A69B48B26DD2662005B5FFF /* GeneratePublishers.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GeneratePublishers.storyboard; sourceTree = "<group>"; };
 		5A69B48D26DD2676005B5FFF /* GeneratePublishersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePublishersViewController.swift; sourceTree = "<group>"; };
 		5A69B48F26DE2860005B5FFF /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
@@ -84,6 +88,10 @@
 		5A8B1B8A26BEFA9200A863D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A8B1B8D26BEFA9200A863D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A8B1B8F26BEFA9200A863D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A94F09D271572CD00A5E45A /* ThreeClosuresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeClosuresViewModel.swift; sourceTree = "<group>"; };
+		5A94F09F2715754D00A5E45A /* CityCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCoordinates.swift; sourceTree = "<group>"; };
+		5A94F0A22715889100A5E45A /* GetTempUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTempUseCase.swift; sourceTree = "<group>"; };
+		5A94F0A42715AB0A00A5E45A /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		5ACE53BD26FA49BD00777619 /* RequestComposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestComposable.swift; sourceTree = "<group>"; };
 		5ACE53C026FA6DCB00777619 /* RequestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProvider.swift; sourceTree = "<group>"; };
 		5ACE53C226FB83D500777619 /* FlickrApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrApi.swift; sourceTree = "<group>"; };
@@ -151,10 +159,13 @@
 		5A539E6527102B3900D8A00C /* ThreeClosures */ = {
 			isa = PBXGroup;
 			children = (
-				5A539E6A271033F800D8A00C /* ThreeClosuresEnvironment.swift */,
+				5A539E6A271033F800D8A00C /* ThreeClosuresNetworkingEnvironment.swift */,
 				5A539E6327102B3200D8A00C /* ThreeClosuresViewController.swift */,
+				5A94F09D271572CD00A5E45A /* ThreeClosuresViewModel.swift */,
+				5A94F0A22715889100A5E45A /* GetTempUseCase.swift */,
 				5A539E6627102B5E00D8A00C /* ThreeClosures.storyboard */,
-				5A539E6827102EA100D8A00C /* ThreeClosuresRefreshButton.swift */,
+				5A539E6827102EA100D8A00C /* ThreeClosuresUpdateButton.swift */,
+				5A94F0A62715AB1600A5E45A /* Model */,
 			);
 			path = ThreeClosures;
 			sourceTree = "<group>";
@@ -235,6 +246,15 @@
 				5A8B1B8F26BEFA9200A863D7 /* Info.plist */,
 			);
 			path = "iOS Labs";
+			sourceTree = "<group>";
+		};
+		5A94F0A62715AB1600A5E45A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A94F09F2715754D00A5E45A /* CityCoordinates.swift */,
+				5A94F0A42715AB0A00A5E45A /* WeatherResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5AEEA80426CC470800504685 /* SwipeActions */ = {
@@ -339,7 +359,9 @@
 				5A69B48E26DD2676005B5FFF /* GeneratePublishersViewController.swift in Sources */,
 				5A539E6427102B3200D8A00C /* ThreeClosuresViewController.swift in Sources */,
 				5A2DB79A26D642EE000EDC46 /* ContextMenuViewController.swift in Sources */,
-				5A539E6927102EA100D8A00C /* ThreeClosuresRefreshButton.swift in Sources */,
+				5A94F0A52715AB0A00A5E45A /* WeatherResponse.swift in Sources */,
+				5A94F09E271572CD00A5E45A /* ThreeClosuresViewModel.swift in Sources */,
+				5A539E6927102EA100D8A00C /* ThreeClosuresUpdateButton.swift in Sources */,
 				5AEEA80826CC484100504685 /* SwipeActionsViewController.swift in Sources */,
 				5A6B8A0826E9425A0097DA62 /* FlickrResponse.swift in Sources */,
 				5ACE53C126FA6DCB00777619 /* RequestProvider.swift in Sources */,
@@ -349,8 +371,10 @@
 				5A6B8B2226F11C320097DA62 /* GetPhotosUseCase.swift in Sources */,
 				5A6B8B2026F118BA0097DA62 /* GetPhotoUseCase.swift in Sources */,
 				5A2DB79E26D6C15E000EDC46 /* Sightseeing.swift in Sources */,
+				5A94F0A02715754D00A5E45A /* CityCoordinates.swift in Sources */,
+				5A94F0A32715889100A5E45A /* GetTempUseCase.swift in Sources */,
 				5A69B49026DE2861005B5FFF /* Input.swift in Sources */,
-				5A539E6B271033F800D8A00C /* ThreeClosuresEnvironment.swift in Sources */,
+				5A539E6B271033F800D8A00C /* ThreeClosuresNetworkingEnvironment.swift in Sources */,
 				5A2DB79C26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

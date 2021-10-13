@@ -164,8 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				5A539E6627102B5E00D8A00C /* ThreeClosures.storyboard */,
-				5A539E6827102EA100D8A00C /* ThreeClosuresUpdateButton.swift */,
 				5A539E6327102B3200D8A00C /* ThreeClosuresViewController.swift */,
+				5A539E6827102EA100D8A00C /* ThreeClosuresUpdateButton.swift */,
 				5A539E6A271033F800D8A00C /* ThreeClosuresNetworkingEnvironment.swift */,
 				5A94F0A22715889100A5E45A /* ThreeClosuresGetTempUseCase.swift */,
 				5A94F09D271572CD00A5E45A /* ThreeClosuresViewModel.swift */,

@@ -27,8 +27,8 @@ struct ThreeClosuresNetworkingEnvironment {
         case .dev:
             return ThreeClosuresNetworkingEnvironment(getTemp: .init())
         case .qa:
-            return ThreeClosuresNetworkingEnvironment(getTemp: .init())
-//            return ThreeClosuresNetworkingEnvironment(getTemp: .trulyHot)
+//            return ThreeClosuresNetworkingEnvironment(getTemp: .init())
+            return ThreeClosuresNetworkingEnvironment(getTemp: .trulyHot)
         case .prod:
             return ThreeClosuresNetworkingEnvironment(getTemp: .init())
         }

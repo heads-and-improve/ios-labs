@@ -46,9 +46,6 @@
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
-                                        <connections>
-                                            <action selector="handleTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aSV-CY-Ywh"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

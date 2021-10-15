@@ -14,28 +14,29 @@ final class ThreeClosuresViewController: UIViewController {
     @IBOutlet private weak var tempLabel: UILabel!
     @IBOutlet private weak var updateButton: ThreeClosuresUpdateButton!
     
-    private let viewModel = ThreeClosuresViewModel()
-//    private let viewModel = ThreeClosuresViewModelOpt()
+//    private let viewModel = ThreeClosuresViewModel()
+    private let viewModel = ThreeClosuresViewModelOpt()
     
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        subscrubeToViewModel()
+//        passCityToViewModel(segmentedControl)
+//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        subscribeOnUpdateButton()
         subscrubeToViewModel()
         passCityToViewModel(segmentedControl)
     }
 
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        subscribeOnUpdateButton()
-//        subscrubeToViewModel()
-//        passCityToViewModel(segmentedControl)
-//    }
-//
-//    private func subscribeOnUpdateButton() {
-//        updateButton.onTap = { [weak self] city in
-//            guard let city = city else { fatalError("City was not set") }
+    private func subscribeOnUpdateButton() {
+        updateButton.onTap = { [weak self] city in
+            guard let city = city else { fatalError("City was not set") }
 //            self?.viewModel.updateTemp(cityName: city)
-//        }
-//    }
+            self?.viewModel.updateTemp()
+        }
+    }
 
     private func subscrubeToViewModel() {
         viewModel.onCityUpdated = { [weak self] coords in
@@ -56,8 +57,8 @@ final class ThreeClosuresViewController: UIViewController {
         viewModel.setCity(cityName: city)
     }
 
-    @IBAction func handleTapped(_ sender: ThreeClosuresUpdateButton) {
-        guard let city = sender.city else { fatalError("City was not set") }
-        viewModel.updateTemp(cityName: city)
-    }
+//    @IBAction func handleTapped(_ sender: ThreeClosuresUpdateButton) {
+//        guard let city = sender.city else { fatalError("City was not set") }
+//        viewModel.updateTemp(cityName: city)
+//    }
 }

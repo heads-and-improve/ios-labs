@@ -27,7 +27,7 @@ final class ThreeClosuresViewModel {
             )
             .store(in: &cancellables)
         
-        
+//        let getTemp = ThreeClosuresGetTempUseCase()
         let getTemp = ThreeClosuresNetworkingEnvironment.current(.qa).getTemp
         
         updateTempEvent

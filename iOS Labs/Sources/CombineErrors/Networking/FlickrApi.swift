@@ -47,7 +47,7 @@ extension FlickrApi: RequestComposable {
         case .getPhotosByTag(let tag):
             return [
                 "method": "flickr.photos.search",
-                "api_key": nil,
+                "api_key": CombineErrorsEnvironment.shared.apiKey,
                 "tags": tag,
                 "per_page": "25",
                 "page": "1",
@@ -58,6 +58,5 @@ extension FlickrApi: RequestComposable {
             return [:]
         }
     }
-    
     
 }

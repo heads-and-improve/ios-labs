@@ -18,6 +18,9 @@
 ## Combine 3/3
 Объясняю рефакторинг сетевого слоя их Combine 2/3. Рассказываю про разичные операторы обработки ошибок в Combine
 
+## Closures
+Рассказываю о применении замыканий на трех различных примерах, в том числе нетривиальных.
+
 ## UICollectionView 1/...
 Предлагаю взять тему лейаут через UICollectionViewCompositionalLayout. На него есть неплохая документация у Эппл https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/implementing_modern_collection_views
 

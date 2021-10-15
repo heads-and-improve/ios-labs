@@ -30,7 +30,7 @@ protocol RequestComposable {
     var method: RequestMethod { get }
     
     var data: Data? { get }
-    
+
 }
 
 extension RequestComposable {
@@ -42,6 +42,6 @@ extension RequestComposable {
     var query: [String: String] { [:] }
     
     var data: Data? { nil }
-    
+
 }
 

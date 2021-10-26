@@ -71,6 +71,10 @@ extension MainMenuViewController {
         case 6:
             guard let viewController = storyboard.instantiateViewController(identifier: identifier) as? ThreeClosuresViewController else { return }
             navigationController?.pushViewController(viewController, animated: true)
+            
+        case 7:
+            guard let viewController = storyboard.instantiateViewController(identifier: identifier) as? CompositionalLayoutViewController else { return }
+            navigationController?.pushViewController(viewController, animated: true)
 
         default:
             break

@@ -12,6 +12,11 @@
 		5A244CE126BFE1DD00F805B7 /* lessons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A244CE026BFE1DD00F805B7 /* lessons.plist */; };
 		5A244CE326C00A8D00F805B7 /* MainMenuCellContentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A244CE226C00A8D00F805B7 /* MainMenuCellContentConfiguration.swift */; };
 		5A244CE526C00AE500F805B7 /* MainMenuContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A244CE426C00AE500F805B7 /* MainMenuContentView.swift */; };
+		5A2AE2042728372400B04611 /* CompositionalLayout.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A2AE2032728372400B04611 /* CompositionalLayout.storyboard */; };
+		5A2AE2072728374B00B04611 /* CompositionalLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2AE2062728374B00B04611 /* CompositionalLayoutViewController.swift */; };
+		5A2AE2092728384A00B04611 /* CompositionalLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2AE2082728384A00B04611 /* CompositionalLayoutCell.swift */; };
+		5A2AE20B27283D5F00B04611 /* GetPhotoAlbumUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2AE20A27283D5F00B04611 /* GetPhotoAlbumUseCase.swift */; };
+		5A2AE20D27283DE900B04611 /* PhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2AE20C27283DE900B04611 /* PhotoAlbum.swift */; };
 		5A2DB79826D6428E000EDC46 /* ContextMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A2DB79726D6428E000EDC46 /* ContextMenu.storyboard */; };
 		5A2DB79A26D642EE000EDC46 /* ContextMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DB79926D642EE000EDC46 /* ContextMenuViewController.swift */; };
 		5A2DB79C26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DB79B26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift */; };
@@ -60,6 +65,11 @@
 		5A244CE026BFE1DD00F805B7 /* lessons.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = lessons.plist; sourceTree = "<group>"; };
 		5A244CE226C00A8D00F805B7 /* MainMenuCellContentConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCellContentConfiguration.swift; sourceTree = "<group>"; };
 		5A244CE426C00AE500F805B7 /* MainMenuContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuContentView.swift; sourceTree = "<group>"; };
+		5A2AE2032728372400B04611 /* CompositionalLayout.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompositionalLayout.storyboard; sourceTree = "<group>"; };
+		5A2AE2062728374B00B04611 /* CompositionalLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutViewController.swift; sourceTree = "<group>"; };
+		5A2AE2082728384A00B04611 /* CompositionalLayoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalLayoutCell.swift; sourceTree = "<group>"; };
+		5A2AE20A27283D5F00B04611 /* GetPhotoAlbumUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhotoAlbumUseCase.swift; sourceTree = "<group>"; };
+		5A2AE20C27283DE900B04611 /* PhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbum.swift; sourceTree = "<group>"; };
 		5A2DB79726D6428E000EDC46 /* ContextMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContextMenu.storyboard; sourceTree = "<group>"; };
 		5A2DB79926D642EE000EDC46 /* ContextMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuViewController.swift; sourceTree = "<group>"; };
 		5A2DB79B26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuPreviewViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +145,7 @@
 				5A6B89F726E7F7480097DA62 /* CombineOperators */,
 				5A6B8A0426E905150097DA62 /* CombineErrors */,
 				5A539E6527102B3900D8A00C /* ThreeClosures */,
+				5A2AE2052728372E00B04611 /* CompositionalLayout */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -146,6 +157,18 @@
 				5A244CE426C00AE500F805B7 /* MainMenuContentView.swift */,
 			);
 			path = MainMenuContent;
+			sourceTree = "<group>";
+		};
+		5A2AE2052728372E00B04611 /* CompositionalLayout */ = {
+			isa = PBXGroup;
+			children = (
+				5A2AE2032728372400B04611 /* CompositionalLayout.storyboard */,
+				5A2AE2082728384A00B04611 /* CompositionalLayoutCell.swift */,
+				5A2AE2062728374B00B04611 /* CompositionalLayoutViewController.swift */,
+				5A2AE20A27283D5F00B04611 /* GetPhotoAlbumUseCase.swift */,
+				5A2AE20C27283DE900B04611 /* PhotoAlbum.swift */,
+			);
+			path = CompositionalLayout;
 			sourceTree = "<group>";
 		};
 		5A2DB79626D64276000EDC46 /* ContextMenu */ = {
@@ -337,6 +360,7 @@
 				5A69B48C26DD2662005B5FFF /* GeneratePublishers.storyboard in Resources */,
 				5A244CE126BFE1DD00F805B7 /* lessons.plist in Resources */,
 				5A8B1B8926BEFA9000A863D7 /* MainMenu.storyboard in Resources */,
+				5A2AE2042728372400B04611 /* CompositionalLayout.storyboard in Resources */,
 				5A6B89F626E7F7370097DA62 /* CombineOperators.storyboard in Resources */,
 				5A2DB79826D6428E000EDC46 /* ContextMenu.storyboard in Resources */,
 				5A6B89FB26E817990097DA62 /* apikeys.plist in Resources */,
@@ -351,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ACE53C526FB859100777619 /* CombineErrorsEnvironment.swift in Sources */,
+				5A2AE2072728374B00B04611 /* CompositionalLayoutViewController.swift in Sources */,
 				5ACE53BE26FA49BD00777619 /* RequestComposable.swift in Sources */,
 				5A6B89F926E7F7620097DA62 /* CombineOperatorsViewController.swift in Sources */,
 				5A2DB7A026D6C983000EDC46 /* ContextMenuDetailsViewController.swift in Sources */,
@@ -368,8 +393,10 @@
 				5A94F0A52715AB0A00A5E45A /* WeatherResponse.swift in Sources */,
 				5A94F09E271572CD00A5E45A /* ThreeClosuresViewModel.swift in Sources */,
 				5A94F0AB2715E40000A5E45A /* ThreeClosuresViewModelOpt.swift in Sources */,
+				5A2AE2092728384A00B04611 /* CompositionalLayoutCell.swift in Sources */,
 				5A539E6927102EA100D8A00C /* ThreeClosuresUpdateButton.swift in Sources */,
 				5AEEA80826CC484100504685 /* SwipeActionsViewController.swift in Sources */,
+				5A2AE20D27283DE900B04611 /* PhotoAlbum.swift in Sources */,
 				5A6B8A0826E9425A0097DA62 /* FlickrResponse.swift in Sources */,
 				5ACE53C126FA6DCB00777619 /* RequestProvider.swift in Sources */,
 				5A8B1B8426BEFA9000A863D7 /* SceneDelegate.swift in Sources */,
@@ -384,6 +411,7 @@
 				5A539E6B271033F800D8A00C /* ThreeClosuresNetworkingEnvironment.swift in Sources */,
 				5A94F0A92715E2EA00A5E45A /* ThreeClosuresLazyFetcher.swift in Sources */,
 				5A2DB79C26D6BF7F000EDC46 /* ContextMenuPreviewViewController.swift in Sources */,
+				5A2AE20B27283D5F00B04611 /* GetPhotoAlbumUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

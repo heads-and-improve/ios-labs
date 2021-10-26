@@ -68,5 +68,15 @@
 		<key>viewControllerName</key>
 		<string>ThreeClosuresViewController</string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>UICollectionViewCompositionalLayout</string>
+		<key>description</key>
+		<string>Рассказываю о новом способе организации лейаута UICollectionView без помощи стандартного метода делегата</string>
+		<key>storyboardName</key>
+		<string>CompositionalLayout</string>
+		<key>viewControllerName</key>
+		<string>CompositionalLayoutViewController</string>
+	</dict>
 </array>
 </plist>

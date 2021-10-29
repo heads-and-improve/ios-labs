@@ -21,6 +21,5 @@
 ## Closures
 Рассказываю о применении замыканий на трех различных примерах, в том числе нетривиальных.
 
-## UICollectionView 1/...
-Предлагаю взять тему лейаут через UICollectionViewCompositionalLayout. На него есть неплохая документация у Эппл https://developer.apple.com/documentation/uikit/views_and_controls/collection_views/implementing_modern_collection_views
-
+## UICollectionViewCompositionalLayout
+Рассказываю о новом способе организации лейаута UICollectionView без помощи стандартного метода делегата

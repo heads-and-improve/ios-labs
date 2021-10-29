@@ -27,6 +27,10 @@ final class CombineErrorsViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.searchController = searchController
         subscribeToViewModel()
+        
+        let just = Just(1000)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
     }
     
     private func subscribeToViewModel() {

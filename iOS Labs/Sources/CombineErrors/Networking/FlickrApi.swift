@@ -45,6 +45,9 @@ extension FlickrApi: RequestComposable {
     var query: [String : String?] {
         switch self {
         case .getPhotosByTag(let tag):
+            guard let apiKey = CombineErrorsEnvironment.shared.apiKey, !apiKey.isEmpty else {
+                fatalError("ApiKey is missing!")
+            }
             return [
                 "method": "flickr.photos.search",
                 "api_key": CombineErrorsEnvironment.shared.apiKey,

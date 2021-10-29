@@ -8,14 +8,21 @@
 import UIKit
 import Combine
 
-struct GetPhotoAlbumUseCase {
+final class CompositionalLayoutNetworkingClient {
     
     private let getPhotos = GetPhotosUseCase()
     
     private var cancellables = Set<AnyCancellable>()
     
-    func callAsFunction() -> AnyPublisher<PhotoAlbum, Never> {
-        getPhotos("firenze")
+    func callAsFunction(
+        tagOne: String,
+        _ tagTwo: String,
+        _ tagThree: String,
+        onStart: @escaping () -> Void,
+        onComplete: @escaping (PhotoAlbum) -> Void) {
+        
+        onStart()
+        getPhotos(tagOne)
             .map { (result: Result<[UIImage], Error>) -> [UIImage] in
                 switch result {
                 case .success(let photos):
@@ -26,7 +33,7 @@ struct GetPhotoAlbumUseCase {
             }
             .replaceError(with: [])
             .zip(
-                getPhotos("ferrari")
+                getPhotos(tagTwo)
                     .map { (result: Result<[UIImage], Error>) -> [UIImage] in
                         switch result {
                         case .success(let photos):
@@ -36,7 +43,7 @@ struct GetPhotoAlbumUseCase {
                         }
                     }
                     .replaceError(with: []),
-                getPhotos("pizza")
+                getPhotos(tagThree)
                     .map { (result: Result<[UIImage], Error>) -> [UIImage] in
                         switch result {
                         case .success(let photos):
@@ -48,6 +55,8 @@ struct GetPhotoAlbumUseCase {
                     .replaceError(with: [])
             )
             .map { PhotoAlbum($0.0, $0.1, $0.2) }
-            .eraseToAnyPublisher()
+            .receive(on: RunLoop.main)
+            .sink { onComplete($0) }
+            .store(in: &cancellables)
     }
 }

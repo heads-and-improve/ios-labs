@@ -24,6 +24,7 @@ final class GeneratePublishersViewController: UIViewController {
     private var state: State = .just
 
     private let passthroughSubject = PassthroughSubject<String, Error>()
+    private let currentValueSubject = CurrentValueSubject<String, Error>("Тест")
     private let input = Input()
     private var cancellables = Set<AnyCancellable>()
 
@@ -92,6 +93,7 @@ final class GeneratePublishersViewController: UIViewController {
         case .future:
             Future<String, Error> { promise in
                 promise(.success(text))
+                
             }
             .sink(
                 receiveCompletion: { completion in

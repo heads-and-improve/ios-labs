@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PyF-Kq-8wx">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="782"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eXu-Wn-4My">
                                     <size key="itemSize" width="116" height="127"/>
@@ -27,15 +27,19 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="QRh-Jw-zYx">
+                                    <rect key="frame" x="0.0" y="-44" width="414" height="782"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CompositionalLayoutCell" id="gxB-4e-vPI" customClass="CompositionalLayoutCell" customModule="iOS_Labs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="116" height="127"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6ZW-CH-lC8">
                                             <rect key="frame" x="0.0" y="0.0" width="116" height="127"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eIz-Tb-ctv">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eIz-Tb-ctv">
                                                     <rect key="frame" x="0.0" y="0.0" width="116" height="127"/>
                                                 </imageView>
                                             </subviews>
@@ -55,18 +59,37 @@
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="9gW-Lq-2y9"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSS-Io-rkc">
+                                <rect key="frame" x="103.5" y="806" width="207" height="44"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6sK-Zz-Y9y"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Загрузить">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle1"/>
+                                    <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="handleTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="DFs-If-sb7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PyF-Kq-8wx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="40p-ET-K7A"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PyF-Kq-8wx" secondAttribute="trailing" id="f5u-4n-doj"/>
-                            <constraint firstAttribute="bottom" secondItem="PyF-Kq-8wx" secondAttribute="bottom" id="psZ-B0-FxD"/>
-                            <constraint firstItem="PyF-Kq-8wx" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="rK9-SU-Szl"/>
+                            <constraint firstAttribute="top" secondItem="PyF-Kq-8wx" secondAttribute="top" id="02b-pS-vM5"/>
+                            <constraint firstItem="jSS-Io-rkc" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.5" id="19a-OK-S5G"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="jSS-Io-rkc" secondAttribute="bottom" constant="12" id="4Hr-bF-4az"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PyF-Kq-8wx" secondAttribute="trailing" id="52R-0r-Vus"/>
+                            <constraint firstItem="jSS-Io-rkc" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="8NL-h0-vT8"/>
+                            <constraint firstItem="PyF-Kq-8wx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="VhC-Nt-ysi"/>
+                            <constraint firstItem="PyF-Kq-8wx" firstAttribute="bottom" secondItem="jSS-Io-rkc" secondAttribute="top" constant="-24" id="j4n-yy-XIs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="PyF-Kq-8wx" id="3iE-xi-GKM"/>
+                        <outlet property="spinner" destination="QRh-Jw-zYx" id="B56-3s-NAk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -75,6 +98,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

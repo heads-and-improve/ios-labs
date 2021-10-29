@@ -9,20 +9,26 @@ import UIKit
 
 struct PhotoAlbum {
 
-    let firenzes: [UIImage]
-    let ferraries: [UIImage]
-    let pizzas: [UIImage]
+    let folderOne: [UIImage]
+    let folderTwo: [UIImage]
+    let folderThree: [UIImage]
     
-    init(_ firenzes: [UIImage], _ ferraries: [UIImage], _ pizzas: [UIImage]) {
-        self.firenzes = firenzes
-        self.ferraries = ferraries
-        self.pizzas = pizzas
+    var isEmpty: Bool { folderOne.isEmpty && folderTwo.isEmpty && folderThree.isEmpty }
+    
+    init(
+        _ folderOne: [UIImage],
+        _ folderTwo: [UIImage],
+        _ folderThree: [UIImage]
+    ) {
+        self.folderOne = folderOne
+        self.folderTwo = folderTwo
+        self.folderThree = folderThree
     }
     
     init() {
-        self.firenzes = []
-        self.ferraries = []
-        self.pizzas = []
+        self.folderOne = []
+        self.folderTwo = []
+        self.folderThree = []
     }
 
 }

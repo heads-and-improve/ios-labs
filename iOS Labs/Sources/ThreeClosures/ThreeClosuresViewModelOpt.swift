@@ -70,14 +70,3 @@ final class ThreeClosuresViewModelOpt {
         updateTempEvent.send()
     }
 }
-
-fileprivate extension Publisher {
-
-    func `do`(_ sideEffect: @escaping (Output) -> Void) -> AnyPublisher<Output, Failure> {
-        map { output in
-            sideEffect(output)
-            return output
-        }
-        .eraseToAnyPublisher()
-    }
-}

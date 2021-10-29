@@ -97,7 +97,7 @@ extension CombineOperatorsViewController: UISearchBarDelegate {
                         guard let url = components.url else { return Just<UIImage?>(nil).eraseToAnyPublisher() }
                         let request = URLRequest(url: url)
                         return URLSession.shared.dataTaskPublisher(for: request)
-                            .map { data, _ in data }
+                            .map { data, response in data }
                             .map { UIImage(data: $0) }
                             .replaceError(with: nil)
                             .eraseToAnyPublisher()
